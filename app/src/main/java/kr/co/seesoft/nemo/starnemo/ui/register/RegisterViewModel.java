@@ -26,6 +26,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -269,10 +270,6 @@ public class RegisterViewModel extends AndroidViewModel {
 
                         SelectmClisMasterRO result = (SelectmClisMasterRO)msg.obj;
 
-//                        AndroidUtil.log("----------------------- 결과11 ------------------------");
-//                        AndroidUtil.log(result);
-//                        AndroidUtil.log("----------------------- 결과 ------------------------");
-
                         if(result.getmClisLists() != null && result.getmClisLists().size() > 0){
                             ArrayList<HospitalRegisterRO> dataList = hospitalRegisterList.getValue();
 
@@ -402,36 +399,81 @@ public class RegisterViewModel extends AndroidViewModel {
 
     public void scanHospitalRegisterBarcode(String barcode){
 
-        AndroidUtil.log("barcode : " + barcode);
+        if(barcode.length() != 12){
+            //바코드가 12자리가 아닌경우 그냥 패스
+            return;
+        }
 
+        AndroidUtil.log("barcode : " + barcode + " size : " + barcode.length());
+
+        //날짜 확인
+        int dayCount = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+        //TODO 추후 운년에 대한 처리가 필요 현재는 바코드 끌어다 써서 어찌 될지 모르겠음;;
+        String barcodeDay = StringUtils.substring(barcode, 2, 5);
+
+        AndroidUtil.log("dayCount : " + dayCount);
+        AndroidUtil.log("barcodeDay : " + barcodeDay);
+
+
+        if(!String.valueOf(dayCount).equals(barcodeDay)) {
+            String barcodeNumber = StringUtils.substring(barcode, 5, 10);
+            AndroidUtil.toast(getApplication(), "접수 일자 확인이 필요한 바코드 입니다. \n 접수번호 : "+ barcodeNumber);
+            return;
+        }
 
         HospitalRegisterRO target = this.hospitalRegisterList.getValue().stream().filter(t -> {
             return t.barcode.equals(barcode);
         }).findFirst().orElse(null);
 
         if(target != null){
-            target.scanFlag = true;
+            
+            if(!target.scanFlag) {
 
-            String checkSum = StringUtils.substring(barcode, barcode.length()-2, barcode.length()-1);
+                target.scanFlag = true;
 
-            switch (checkSum){
-                case "2":
+                String checkSum = StringUtils.substring(barcode, barcode.length() - 2, barcode.length() - 1);
+                
+                int checkNum = Integer.valueOf(checkSum);
+                
+                //1번은 의뢰지라 패스
+                
+                if(checkNum == 2){
                     sstCount++;
-                    break;
-                case "3":
+                }else if(checkNum == 3){
                     edtaCount++;
-                    break;
-                case "4":
+                }else if(checkNum == 4){
                     urineCount++;
-                    break;
-                case "5":
+                }else if(checkNum >= 5){
+                    //5번 이상은 기타로 빼기로 함
                     otherCount++;
-                    break;
-                default:
-                    break;
+                }
+
+
+                this.hospitalRegisterList.getValue().sort((o1, o2) -> Boolean.compare(o1.scanFlag, o2.scanFlag));
+
+
+//                switch (checkSum) {
+//                    case "2":
+//                        sstCount++;
+//                        break;
+//                    case "3":
+//                        edtaCount++;
+//                        break;
+//                    case "4":
+//                        urineCount++;
+//                        break;
+//                    case "5":
+//                        otherCount++;
+//                        break;
+//                    default:
+//                        break;
+//                }
             }
 
         }else{
+
+            //TODO 없는 바코드에 대해서는 확인하는 API 가 필요함
+
             ArrayList<HospitalRegisterRO> dataList = this.getHospitalRegisterList().getValue();
 
             dataList.add(new HospitalRegisterRO(dataList.size() +1 , barcode));

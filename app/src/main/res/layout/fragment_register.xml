@@ -140,7 +140,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvRegisterScanTotalCount"
+            android:id="@+id/tvRegisterReceiptTotalCount"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -212,7 +212,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvRegisterScanCount"
+            android:id="@+id/tvRegisterSendCount"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="82dp"
@@ -271,7 +271,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvRegisterNoScanCount"
+            android:id="@+id/tvRegisterScanInfo"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="115dp"
@@ -281,7 +281,6 @@
             android:text="0"
             android:textColor="#999999"
             android:textSize="16sp"
-            android:visibility="invisible"
             app:layout_constraintStart_toEndOf="@+id/textView13"
             app:layout_constraintTop_toTopOf="parent" />
 

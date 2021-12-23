@@ -80,7 +80,7 @@ public class RegisterFragment extends Fragment {
     /** 버튼들 */
     private Button btnCamera, btnSend, btnScan, btnAlbum;
     /** 텍스트 뷰들 */
-    private TextView tvRegisterManagerName, tvRegisterDate, tvHospitalName, tvTotalCount, tvNoSendCount, tvScanTotalCount, tvScanCount, tvNoScanCount;
+    private TextView tvRegisterManagerName, tvRegisterDate, tvHospitalName, tvTotalCount, tvNoSendCount, tvReceiptTotalCount, tvSendCount, tvScanInfo;
     /** 이미지 뷰 */
     private ImageView ivCall;
 
@@ -133,9 +133,9 @@ public class RegisterFragment extends Fragment {
         tvTotalCount =  (TextView)view.findViewById(R.id.tvRegisterTotalCount);
         tvNoSendCount = (TextView)view.findViewById(R.id.tvRegisterNoSendCount);
 
-        tvScanTotalCount = (TextView)view.findViewById(R.id.tvRegisterScanTotalCount);
-        tvScanCount = (TextView)view.findViewById(R.id.tvRegisterScanCount);
-        tvNoScanCount = (TextView)view.findViewById(R.id.tvRegisterNoScanCount);
+        tvReceiptTotalCount = (TextView)view.findViewById(R.id.tvRegisterReceiptTotalCount);
+        tvSendCount = (TextView)view.findViewById(R.id.tvRegisterSendCount);
+        tvScanInfo = (TextView)view.findViewById(R.id.tvRegisterScanInfo);
 
         ivCall = (ImageView) view.findViewById(R.id.ivRegisterCall);
 
@@ -315,7 +315,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onChanged(Integer integer) {
 
-                tvScanCount.setText(integer + " 건");
+                tvSendCount.setText(integer + " 건");
                 if(registerViewModel.getProgressFlag().getValue()){
 
                     String text = "진행중 : "+ integer + " / " + registerViewModel.getTotalCount().getValue();
@@ -329,19 +329,23 @@ public class RegisterFragment extends Fragment {
         registerViewModel.getTotalScanCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
-                tvScanTotalCount.setText(integer + " 건");
+                //스캔 카운트 변경은 여기
+
+
+                tvScanInfo.setText(registerViewModel.getScanCount().getValue() +" / " + integer);
+//                tvReceiptTotalCount.setText(integer + " 건");
             }
         });
-//        registerViewModel.getScanCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-//            @Override
-//            public void onChanged(Integer integer) {
-//                tvScanCount.setText(integer + " 건");
-//            }
-//        });
+        registerViewModel.getScanCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                tvScanInfo.setText(integer +" / " + registerViewModel.getTotalScanCount().getValue());
+            }
+        });
 //        registerViewModel.getNoScanCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
 //            @Override
 //            public void onChanged(Integer integer) {
-//                tvNoScanCount.setText(integer + " 건");
+//                tvScanInfo.setText(integer + " 건");
 //            }
 //        });
 
@@ -365,7 +369,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onChanged(NemoImageInfoRO nemoImageInfoRO) {
 
-                tvScanTotalCount.setText(nemoImageInfoRO.getMainCount() + " 건");
+                tvReceiptTotalCount.setText(nemoImageInfoRO.getMainCount() + " 건");
             }
         });
 

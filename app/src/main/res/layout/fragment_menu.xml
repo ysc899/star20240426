@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:background="#f2f2f2"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f2f2f2"
+            android:fontFamily="@font/scdream5"
+            android:text="MENU"
+            android:textColor="#4f2330"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="185dp"
+        android:background="#f2f2f2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        tools:layout_editor_absoluteX="1dp">
+
+        <ImageButton
+            android:id="@+id/btnMenuVisitPlan"
+            android:layout_width="188dp"
+            android:layout_height="219dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#f2f2f2"
+            android:scaleType="fitXY"
+            android:src="@drawable/menu_btn_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/btnStatis"
+            android:layout_width="188dp"
+            android:layout_height="219dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="#f2f2f2"
+            android:scaleType="fitXY"
+            android:src="@drawable/menu_btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/btnMenuAccount"
+            android:layout_width="188dp"
+            android:layout_height="219dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#f2f2f2"
+            android:scaleType="fitXY"
+            android:src="@drawable/menu_btn_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnMenuVisitPlan"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="188dp"
+            android:layout_height="219dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="#f2f2f2"
+            android:scaleType="fitXY"
+            android:src="@drawable/menu_btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnStatis"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="77dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="55dp"
+            android:background="@android:color/white"
+            android:src="@drawable/menu_icon_01"
+            app:layout_constraintStart_toStartOf="@+id/btnMenuVisitPlan"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="95dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="55dp"
+            android:background="@android:color/white"
+            android:src="@drawable/menu_icon_02"
+            app:layout_constraintStart_toStartOf="@+id/btnStatis"
+            app:layout_constraintTop_toTopOf="@+id/btnStatis" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="122dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="55dp"
+            android:background="@android:color/white"
+            android:src="@drawable/menu_icon_03"
+            app:layout_constraintStart_toStartOf="@id/btnMenuAccount"
+            app:layout_constraintTop_toBottomOf="@+id/btnMenuVisitPlan" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="99dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="55dp"
+            android:background="@android:color/white"
+            android:src="@drawable/menu_icon_04"
+            app:layout_constraintStart_toStartOf="@+id/imageButton4"
+            app:layout_constraintTop_toBottomOf="@+id/btnStatis" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:background="@android:color/white"
+            android:fontFamily="@font/notosansmedium"
+            android:text="일일방문 계획"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMenuVisitPlan"
+            app:layout_constraintEnd_toEndOf="@+id/btnMenuVisitPlan"
+            app:layout_constraintStart_toStartOf="@+id/btnMenuVisitPlan" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:background="@android:color/white"
+            android:fontFamily="@font/notosansmedium"
+            android:text="접수 통계 관리"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnStatis"
+            app:layout_constraintEnd_toEndOf="@+id/btnStatis"
+            app:layout_constraintStart_toStartOf="@+id/btnStatis" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:background="@android:color/white"
+            android:fontFamily="@font/notosansmedium"
+            android:text="거래처"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/btnMenuAccount"
+            app:layout_constraintEnd_toEndOf="@id/btnMenuAccount"
+            app:layout_constraintStart_toStartOf="@id/btnMenuAccount" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:background="@android:color/white"
+            android:fontFamily="@font/notosansmedium"
+            android:text="마이페이지"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+            app:layout_constraintStart_toStartOf="@+id/imageButton4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_menu">
+<!--    app:startDestination="@+id/navigation_home">-->
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.home.HomeFragment"
+        android:label="@string/nav_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.menu.MenuFragment"
+        android:label="@string/nav_mypage"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_navigation_menu_to_visitPlanFragment"
+            app:destination="@id/visitPlanFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_navigation_menu_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_navigation_menu_to_statisFragment"
+            app:destination="@id/statisFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_myinfo"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.dashboard.DashboardFragment"
+        android:label="@string/nav_mypage"
+        tools:layout="@layout/fragment_dashboard" />
+
+
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.setting.SettingFragment"
+        android:label="@string/nav_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/visitPlanFragment"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.visitplan.VisitPlanFragment"
+        android:label="방문계획"
+        tools:layout="@layout/fragment_visit_plan"
+        >
+        <action
+            android:id="@+id/action_visitPlanFragment_to_visitPlanAddFragment"
+            app:destination="@id/visitPlanAddFragment" />
+        <action
+            android:id="@+id/action_visitPlanFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/visitPlanAddFragment"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.visitplanadd.VisitPlanAddFragment"
+        android:label="fragment_visit_plan_add"
+        tools:layout="@layout/fragment_visit_plan_add" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <argument
+            android:name="register_day"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="visit_hospital"
+            app:argType="kr.co.seesoft.nemo.starnemo.nemoapi.ro.NemoVisitListRO"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_registerFragment_to_takingOverFragment"
+            app:destination="@id/takingOverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/takingOverFragment"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.takingover.TakingOverFragment"
+        android:label="TakingOverFragment">
+
+        <argument
+            android:name="register_day"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="visit_hospital"
+            app:argType="kr.co.seesoft.nemo.starnemo.api.ro.VisitPlanRO"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="sst"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="edta"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="urine"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="other"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.account.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/statisFragment"
+        android:name="kr.co.seesoft.nemo.starnemo.ui.statis.StatisFragment"
+        android:label="StatisFragment" />
+
+</navigation>

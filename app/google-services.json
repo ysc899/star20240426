@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "47871701077",
+    "firebase_url": "https://star-nemo.firebaseio.com",
+    "project_id": "star-nemo",
+    "storage_bucket": "star-nemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47871701077:android:cc175ee7edbc66b1dbe4dc",
+        "android_client_info": {
+          "package_name": "kr.co.seesoft.nemo.starnemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47871701077-ranavdv4o21ih82hfp856grprhj7v7eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdh6v_x202lhE4KzM9BErJyaVEViwDVTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47871701077-ranavdv4o21ih82hfp856grprhj7v7eb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

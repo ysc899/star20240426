@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+<!--        <domain includeSubdomains="true">192.168.1.210</domain>-->
+<!--        <domain includeSubdomains="true">219.252.39.22</domain>-->
+<!--        <domain includeSubdomains="true">192.168.1.183</domain>-->
+<!--        <domain includeSubdomains="true">219.252.39.211</domain>-->
+        <!-- 로컬 서버 테스트 -->
+        <domain includeSubdomains="true">10.60.70.39</domain>
+
+        <domain includeSubdomains="true">star.seegenemedical.com</domain>
+        <domain includeSubdomains="true">smf-star.seesoft.co.kr</domain>
+        <!-- STAR API -->
+        <domain includeSubdomains="true">10.60.70.42</domain>
+    </domain-config>
+
+</network-security-config>

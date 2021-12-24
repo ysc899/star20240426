@@ -11,7 +11,7 @@
         <domain includeSubdomains="true">star.seegenemedical.com</domain>
         <domain includeSubdomains="true">smf-star.seesoft.co.kr</domain>
         <!-- STAR API -->
-        <domain includeSubdomains="true">10.60.70.42</domain>
+        <domain includeSubdomains="true">100.100.50.215</domain>
     </domain-config>
 
 </network-security-config>

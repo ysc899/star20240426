@@ -94,6 +94,20 @@ public class SelectmClisMasterRO {
         private String specimenTrack;
         @SerializedName("Barcode")
         private String barcode;
+        @SerializedName("FWRKCRT")
+        private String fwrkcrt;
+        @SerializedName("AGE")
+        private String age;
+        @SerializedName("FWRKCBC")
+        private String fwrkcbc;
+        @SerializedName("FWRKJKN")
+        private String fwrkjkn;
+        @SerializedName("FWRKDOC")
+        private String fwrkdoc;
+        @SerializedName("SpcNo")
+        private String spcNo;
+
+
 
         public String getInstCd() {
             return instCd;
@@ -359,6 +373,54 @@ public class SelectmClisMasterRO {
             this.barcode = barcode;
         }
 
+        public String getFwrkcrt() {
+            return fwrkcrt;
+        }
+
+        public void setFwrkcrt(String fwrkcrt) {
+            this.fwrkcrt = fwrkcrt;
+        }
+
+        public String getAge() {
+            return age;
+        }
+
+        public void setAge(String age) {
+            this.age = age;
+        }
+
+        public String getFwrkcbc() {
+            return fwrkcbc;
+        }
+
+        public void setFwrkcbc(String fwrkcbc) {
+            this.fwrkcbc = fwrkcbc;
+        }
+
+        public String getFwrkjkn() {
+            return fwrkjkn;
+        }
+
+        public void setFwrkjkn(String fwrkjkn) {
+            this.fwrkjkn = fwrkjkn;
+        }
+
+        public String getFwrkdoc() {
+            return fwrkdoc;
+        }
+
+        public void setFwrkdoc(String fwrkdoc) {
+            this.fwrkdoc = fwrkdoc;
+        }
+
+        public String getSpcNo() {
+            return spcNo;
+        }
+
+        public void setSpcNo(String spcNo) {
+            this.spcNo = spcNo;
+        }
+
         @Override
         public String toString() {
             return "MClisInfo{" +
@@ -395,6 +457,12 @@ public class SelectmClisMasterRO {
                     ", FWRKNAT='" + FWRKNAT + '\'' +
                     ", specimenTrack='" + specimenTrack + '\'' +
                     ", barcode='" + barcode + '\'' +
+                    ", fwrkcrt='" + fwrkcrt + '\'' +
+                    ", age='" + age + '\'' +
+                    ", fwrkcbc='" + fwrkcbc + '\'' +
+                    ", fwrkjkn='" + fwrkjkn + '\'' +
+                    ", fwrkdoc='" + fwrkdoc + '\'' +
+                    ", spcNo='" + spcNo + '\'' +
                     '}';
         }
     }

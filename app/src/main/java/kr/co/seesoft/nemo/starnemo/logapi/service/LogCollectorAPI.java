@@ -33,7 +33,7 @@ public class LogCollectorAPI {
     
     
 //    private final String BASE_URL = "http://192.168.20.2:8080/";
-    private final String BASE_URL = "http://smf-star.seesoft.co.kr/";
+    private final String BASE_URL = "https://starinfo.seegenemedical.com/";
 
     private LogCollectorApiInterface apis;
 

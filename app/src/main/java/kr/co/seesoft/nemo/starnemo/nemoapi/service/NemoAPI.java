@@ -41,7 +41,7 @@ public class NemoAPI {
 
 //    private final String BASE_URL = "http://10.60.70.39:8080/";
 //    private final String BASE_URL = "http://219.252.39.211:8080/";
-    private final String BASE_URL = "http://star.seegenemedical.com/";
+    private final String BASE_URL = "http://star2.seegenemedical.com/";
 
     private NemoApiInterface apis;
 

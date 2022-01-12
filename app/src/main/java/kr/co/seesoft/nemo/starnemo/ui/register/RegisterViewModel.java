@@ -290,19 +290,6 @@ public class RegisterViewModel extends AndroidViewModel {
 
                         }
 
-
-                        //
-//            datas.add(new HospitalRegisterRO(order++, "00000633" , "임병철", Arrays.asList("Plain tube"), "012999500140"));
-//            datas.add(new HospitalRegisterRO(order++, "00000633" , "임병철", Arrays.asList("NaF 용기"), "012999500157"));
-//            datas.add(new HospitalRegisterRO(order++, "00000633" , "임병철", Arrays.asList("SST tube"), "012999500126"));
-//            datas.add(new HospitalRegisterRO(order++, "00000633" , "임병철", Arrays.asList("EDTA tube"), "012999500133"));
-
-//                }
-
-
-
-//                this.hospitalRegisterList.setValue(datas);
-
                         break;
                     default:
 

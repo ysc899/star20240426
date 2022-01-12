@@ -209,7 +209,8 @@ public class LoginActivity extends AppCompatActivity {
     // 구글 보안 정책에 위배 되어 수정
     public String getDevicesUUID() {
         //개발인지 운영인지 분기 처리
-        return IS_REAL? Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID) : "126757373ab1a776";
+        return IS_REAL? Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID) : "126757373ab1a776"; //JJJJJ
+//        return IS_REAL? Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID) : "c550d6928d1f648f";  //KKKKK
     }
 
     /**

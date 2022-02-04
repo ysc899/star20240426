@@ -11,12 +11,15 @@ import com.google.gson.GsonBuilder;
 
 import kr.co.seesoft.nemo.starnemo.BuildConfig;
 import kr.co.seesoft.nemo.starnemo.api.po.LoginPO;
+import kr.co.seesoft.nemo.starnemo.api.po.SaveSpecimenHandoverPO;
 import kr.co.seesoft.nemo.starnemo.api.po.SelectmClisMasterPO;
 import kr.co.seesoft.nemo.starnemo.api.ro.LoginRO;
+import kr.co.seesoft.nemo.starnemo.api.ro.SaveSpecimenHandoverRO;
 import kr.co.seesoft.nemo.starnemo.api.ro.SelectmClisMasterRO;
 import kr.co.seesoft.nemo.starnemo.ui.dialog.CustomProgressDialog;
 import kr.co.seesoft.nemo.starnemo.util.AndroidUtil;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,7 +46,11 @@ public class StarAPI {
 
         progressDialog = new CustomProgressDialog(context);
 
-        OkHttpClient client = new OkHttpClient.Builder().build();
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder()
+//                .addInterceptor(interceptor)
+                .build();
 
         Gson gson = new GsonBuilder()
                 .setLenient()
@@ -134,6 +141,57 @@ public class StarAPI {
                 AndroidUtil.log(t.getMessage().toString());
                 AndroidUtil.log("*************************************************");
                 AndroidUtil.log(t.getMessage(), t);
+                handler.sendEmptyMessage(0);
+
+//                progressDialog.dismiss();
+
+            }
+        });
+
+    }
+    /**
+     * @param handler 콜백 핸들러
+     */
+    public void sendTakingOverInfo(final SaveSpecimenHandoverPO param, final Handler handler){
+
+
+        Gson gson = new Gson();
+        String p = gson.toJson(param);
+
+        Call<SaveSpecimenHandoverRO> call = apis.SP_SaveSpecimenHandoverRequest(param);
+
+        call.enqueue(new Callback<SaveSpecimenHandoverRO>() {
+            @Override
+            public void onResponse(Call<SaveSpecimenHandoverRO> call, Response<SaveSpecimenHandoverRO> response) {
+
+                SaveSpecimenHandoverRO result = response.body();
+
+                //실패 0
+                
+                //성공 리스트 갯수
+//                AndroidUtil.log("----------------- 완료 -------------------");
+//                AndroidUtil.log(result);
+//                AndroidUtil.log("----------------- 완료 -------------------");
+
+
+                Message msg = new Message();
+                msg.what = response.code();
+                msg.obj = result;
+
+                handler.sendMessage(msg);
+
+//                progressDialog.dismiss();
+
+            }
+
+            @Override
+            public void onFailure(Call<SaveSpecimenHandoverRO> call, Throwable t) {
+
+                AndroidUtil.log("********************에러*****************************");
+                AndroidUtil.log(t.getMessage().toString());
+                AndroidUtil.log("*************************************************");
+                AndroidUtil.log(t.getMessage(), t);
+                t.printStackTrace();
                 handler.sendEmptyMessage(0);
 
 //                progressDialog.dismiss();

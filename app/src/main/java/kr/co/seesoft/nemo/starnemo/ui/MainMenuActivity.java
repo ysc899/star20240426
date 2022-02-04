@@ -231,6 +231,7 @@ public class MainMenuActivity extends AppCompatActivity implements SharedPrefere
     private void checkDirectory(){
 
         File extDir = Arrays.asList(context.getExternalFilesDirs(context.getResources().getString(R.string.app_name))).stream().findFirst().orElse(null);
+
         checkChildDirectory(extDir);
 
         if(context.getExternalMediaDirs().length > 0){
@@ -256,6 +257,7 @@ public class MainMenuActivity extends AppCompatActivity implements SharedPrefere
 
             Arrays.asList(targetDir.list()).stream().forEach(t -> {
                 try {
+
                     long diff = DateUtil.dayDiff(t, today, "yyyyMMdd");
                     if (diff > 259200l) {
 

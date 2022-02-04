@@ -36,6 +36,8 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -52,6 +54,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import kr.co.seesoft.nemo.starnemo.R;
 import kr.co.seesoft.nemo.starnemo.api.ro.HospitalRegisterRO;
@@ -108,7 +111,7 @@ public class RegisterFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         registerViewModel =
-                new ViewModelProvider(this).get(RegisterViewModel.class);
+                new ViewModelProvider(getActivity()).get(RegisterViewModel.class);
 
         View root = inflater.inflate(R.layout.fragment_register, container, false);
 
@@ -402,6 +405,23 @@ public class RegisterFragment extends Fragment {
         });
 
 
+        registerViewModel.getClearDataFlag().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if (aBoolean) {
+
+                    AndroidUtil.log("데이터 전환 여기 안왔냐???");
+
+                    registerViewModel.getClearDataFlag().setValue(false);
+                    //스타 시스템 데이터 조회
+                    registerViewModel.setHospitalRegisterList();
+                }
+            }
+
+        });
+
+
+
     }
 
 
@@ -448,7 +468,8 @@ public class RegisterFragment extends Fragment {
                 case R.id.btnRegisterSend:
                     AndroidUtil.log("전송 버튼 누름");
 
-                    if(registerViewModel.getHospitalRegisterList().getValue().size() > 0){
+
+                    if(registerViewModel.getHospitalRegisterList().getValue().stream().filter(it -> it.scanFlag).count() > 0){
                         Bundle bundle = new Bundle();
 
                         bundle.putString("register_day", DateUtil.getFormatString(registerViewModel.getRegisterDate().getValue(), "yyyyMMdd"));
@@ -457,6 +478,22 @@ public class RegisterFragment extends Fragment {
                         bundle.putInt("edta", registerViewModel.getEdtaCount());
                         bundle.putInt("urine", registerViewModel.getUrineCount());
                         bundle.putInt("other", registerViewModel.getOtherCount());
+
+
+                        List<HospitalRegisterRO> sacnList = registerViewModel.getHospitalRegisterList().getValue().stream().filter(it -> it.scanFlag).collect(Collectors.toList());
+
+                        if(sacnList.size() <= 0){
+                            AndroidUtil.toast(context, "스캔된 내용이 없습니다.");
+                            return;
+                        }
+
+                        Gson gson = new Gson();
+
+//                        AndroidUtil.log("**********************************************");
+//                        AndroidUtil.log(gson.toJson(sacnList));
+//                        AndroidUtil.log("**********************************************");
+
+                        bundle.putString("scanList", gson.toJson(sacnList));
 
                         Navigation.findNavController(getView()).navigate(R.id.action_registerFragment_to_takingOverFragment, bundle);
 
@@ -508,6 +545,7 @@ public class RegisterFragment extends Fragment {
             threadBluetooth.cancel();
         }
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

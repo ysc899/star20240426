@@ -93,6 +93,7 @@ public class SelectmClisMasterRO {
         @SerializedName("SpecimenTrack")
         private String specimenTrack;
         @SerializedName("Barcode")
+
         private String barcode;
         @SerializedName("FWRKCRT")
         private String fwrkcrt;
@@ -106,6 +107,9 @@ public class SelectmClisMasterRO {
         private String fwrkdoc;
         @SerializedName("SpcNo")
         private String spcNo;
+
+        @SerializedName("Cmt")
+        private String Cmt;
 
 
 
@@ -421,6 +425,14 @@ public class SelectmClisMasterRO {
             this.spcNo = spcNo;
         }
 
+        public String getCmt() {
+            return Cmt;
+        }
+
+        public void setCmt(String cmt) {
+            Cmt = cmt;
+        }
+
         @Override
         public String toString() {
             return "MClisInfo{" +
@@ -463,6 +475,7 @@ public class SelectmClisMasterRO {
                     ", fwrkjkn='" + fwrkjkn + '\'' +
                     ", fwrkdoc='" + fwrkdoc + '\'' +
                     ", spcNo='" + spcNo + '\'' +
+                    ", Cmt='" + Cmt + '\'' +
                     '}';
         }
     }

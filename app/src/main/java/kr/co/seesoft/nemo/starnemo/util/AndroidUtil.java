@@ -171,4 +171,22 @@ public class AndroidUtil {
 
     }
 
+    /**
+     * @param str 처리할 문자열
+     * @return 스페이스가 제거된 문자열
+     */
+    public static String spaceRemove(final String str) {
+        if (StringUtils.isNotEmpty(str)) {
+            String target = str;
+            String match2 = "\\s{2,}";
+            target = target.replaceAll(match2, "");
+            target = target.replaceAll("\\p{Z}", "");
+            target.trim();
+            return target;
+        } else {
+            return "";
+        }
+
+    }
+
 }

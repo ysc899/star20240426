@@ -123,12 +123,14 @@ public class RegisterViewModel extends AndroidViewModel {
     private boolean autoSendFlag;
     private int autoSendErrorCount;
 
-
+    /** 데이터 초기화용 플래그 */
+    private MutableLiveData<Boolean> clearDataFlag;
 
 
 
     public RegisterViewModel(Application application) {
         super(application);
+
         this.application = application;
 
         progressFlag = new MediatorLiveData<>();
@@ -166,6 +168,9 @@ public class RegisterViewModel extends AndroidViewModel {
 
         this.hospitalImageInfo = new MediatorLiveData<>();
         this.hospitalImageInfo.setValue(new NemoImageInfoRO());
+
+        this.clearDataFlag = new MediatorLiveData<>();
+        this.clearDataFlag.setValue(false);
 
         api = new NemoAPI(application);
 
@@ -270,22 +275,28 @@ public class RegisterViewModel extends AndroidViewModel {
 
                         SelectmClisMasterRO result = (SelectmClisMasterRO)msg.obj;
 
+                        AndroidUtil.log("resultHandler : " + result.getmClisLists().size());
+
                         if(result.getmClisLists() != null && result.getmClisLists().size() > 0){
                             ArrayList<HospitalRegisterRO> dataList = hospitalRegisterList.getValue();
+                            dataList.clear();
 
-                            result.getmClisLists().forEach(System.out::println);
+                            AndroidUtil.log("resultHandler 아아 : " + dataList.size());
+
+//                            result.getmClisLists().forEach(System.out::println);
 
                             int order = dataList.size() + 1;
 
                             for (SelectmClisMasterRO.MClisInfo it : result.getmClisLists()) {
 
-                                dataList.add(new HospitalRegisterRO(order++, it.getFINSSEQ() , it.getFWRKNAM(), it.getF010FKN(), it.getBarcode()));
+                                dataList.add(new HospitalRegisterRO(order++, it.getFINSSEQ() , it.getFWRKNAM(), it.getF010FKN(), it.getBarcode(), it, userId));
 
                             }
 
                             hospitalRegisterList.setValue(dataList);
 
                             totalScanCount.setValue(dataList.size());
+                            scanCount.setValue(0);
                             noScanCount.setValue(dataList.size());
 
                         }
@@ -391,32 +402,40 @@ public class RegisterViewModel extends AndroidViewModel {
             return;
         }
 
-        AndroidUtil.log("barcode : " + barcode + " size : " + barcode.length());
-
         //날짜 확인
         int dayCount = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
-        //TODO 추후 운년에 대한 처리가 필요 현재는 바코드 끌어다 써서 어찌 될지 모르겠음;;
         String barcodeDay = StringUtils.substring(barcode, 2, 5);
 
-        AndroidUtil.log("dayCount : " + dayCount);
-        AndroidUtil.log("barcodeDay : " + barcodeDay);
+        int barcodeDayCount = Integer.valueOf(barcodeDay);
 
 
-        if(!String.valueOf(dayCount).equals(barcodeDay)) {
+        if(dayCount != barcodeDayCount) {
             String barcodeNumber = StringUtils.substring(barcode, 5, 10);
             AndroidUtil.toast(getApplication(), "접수 일자 확인이 필요한 바코드 입니다. \n 접수번호 : "+ barcodeNumber);
             return;
         }
 
-        HospitalRegisterRO target = this.hospitalRegisterList.getValue().stream().filter(t -> {
-            return t.barcode.equals(barcode);
-        }).findFirst().orElse(null);
+//        HospitalRegisterRO target = this.hospitalRegisterList.getValue().stream().filter(t -> {
+//            return t.barcode.equals(barcode);
+//        }).findFirst().orElse(null);
 
+        this.hospitalRegisterList.getValue().stream().filter(t -> {
+            return t.barcode.equals(barcode);
+        }).forEach(it ->{
+            it.scanFlag = true;
+        });
+
+
+        this.hospitalRegisterList.getValue().sort((o1, o2) -> Boolean.compare(o1.scanFlag, o2.scanFlag));
+
+        calcBarcodeCount();
+
+        /*
         if(target != null){
             
             if(!target.scanFlag) {
 
-                target.scanFlag = true;
+
 
                 String checkSum = StringUtils.substring(barcode, barcode.length() - 2, barcode.length() - 1);
                 
@@ -436,25 +455,8 @@ public class RegisterViewModel extends AndroidViewModel {
                 }
 
 
-                this.hospitalRegisterList.getValue().sort((o1, o2) -> Boolean.compare(o1.scanFlag, o2.scanFlag));
 
 
-//                switch (checkSum) {
-//                    case "2":
-//                        sstCount++;
-//                        break;
-//                    case "3":
-//                        edtaCount++;
-//                        break;
-//                    case "4":
-//                        urineCount++;
-//                        break;
-//                    case "5":
-//                        otherCount++;
-//                        break;
-//                    default:
-//                        break;
-//                }
             }
 
         }else{
@@ -465,7 +467,7 @@ public class RegisterViewModel extends AndroidViewModel {
 
             dataList.add(new HospitalRegisterRO(dataList.size() +1 , barcode));
         }
-
+*/
 
 
         this.scanCount.setValue((int) this.hospitalRegisterList.getValue().stream().filter(t->{return t.scanFlag;}).count());
@@ -473,14 +475,59 @@ public class RegisterViewModel extends AndroidViewModel {
 
     }
 
-    public void setHospitalRegisterList() {
 
-        if(this.getHospitalRegisterList().getValue() != null && this.getHospitalRegisterList().getValue().size() > 0){
-            return;
+    /**
+     * 검체 갯수 확인
+     */
+    private void calcBarcodeCount(){
+
+
+        List<String> barcodes = this.hospitalRegisterList.getValue().stream().filter(it -> it.scanFlag).map(it -> it.barcode).distinct().collect(Collectors.toList());
+
+        int sst = 0;
+        int edta = 0;
+        int urine = 0;
+        int other = 0;
+
+        for(String barcode : barcodes){
+            String checkSum = StringUtils.substring(barcode, barcode.length() - 2, barcode.length() - 1);
+
+            int checkNum = Integer.valueOf(checkSum);
+
+            //1번은 의뢰지라 패스
+
+            if(checkNum == 2){
+                sst++;
+            }else if(checkNum == 3){
+                edta++;
+            }else if(checkNum == 4){
+                urine++;
+            }else if(checkNum >= 5){
+                //5번 이상은 기타로 빼기로 함
+                other++;
+            }
         }
 
-        ArrayList<HospitalRegisterRO> datas = new ArrayList<>();
+        sstCount = sst;
+        edtaCount = edta;
+        urineCount = urine;
+        otherCount = other;
 
+    }
+
+
+    public void setHospitalRegisterList() {
+
+//        if(this.getHospitalRegisterList().getValue() != null && this.getHospitalRegisterList().getValue().size() > 0){
+//            return;
+//        }
+
+        ArrayList<HospitalRegisterRO> hospitalRegisterList = new ArrayList<>();
+
+        this.hospitalRegisterList.setValue(hospitalRegisterList);
+        this.totalScanCount.setValue(this.hospitalRegisterList.getValue().size());
+        this.noScanCount.setValue(this.hospitalRegisterList.getValue().size());
+        this.scanCount.setValue(0);
 
         if(this.getHospitalCd().equals("36246") && BuildConfig.DEBUG) {
 
@@ -496,10 +543,6 @@ public class RegisterViewModel extends AndroidViewModel {
         }
 
 
-
-        this.hospitalRegisterList.setValue(datas);
-        this.totalScanCount.setValue(this.hospitalRegisterList.getValue().size());
-        this.noScanCount.setValue(this.hospitalRegisterList.getValue().size());
     }
 
     public int getSstCount() {
@@ -756,5 +799,9 @@ public class RegisterViewModel extends AndroidViewModel {
 
     public void setAutoSendErrorCount(int autoSendErrorCount) {
         this.autoSendErrorCount = autoSendErrorCount;
+    }
+
+    public MutableLiveData<Boolean> getClearDataFlag() {
+        return clearDataFlag;
     }
 }

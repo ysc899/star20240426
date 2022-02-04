@@ -269,6 +269,8 @@ public class LoginActivity extends AppCompatActivity {
             AndroidUtil.toast(context, "담당자에게 문의 부탁드립니다.");
         }else{
 
+// AndroidUtil.log(String.valueOf(System.nanoTime()));
+// AndroidUtil.log(String.valueOf(System.currentTimeMillis()));
 
 
             AndroidUtil.toast(context, "로그인 되었습니다.");
@@ -278,7 +280,7 @@ public class LoginActivity extends AppCompatActivity {
             sp = getSharedPreferences(AndroidUtil.TAG_SP, Context.MODE_PRIVATE);
             editor = sp.edit();
             //아이디 기억
-            editor.putString(AndroidUtil.SP_LOGIN_ID, etId.getText().toString().toUpperCase());
+            editor.putString(AndroidUtil.SP_LOGIN_ID, AndroidUtil.spaceRemove(etId.getText().toString().toUpperCase()));
             //부서 번호 기억
             editor.putString(AndroidUtil.SP_LOGIN_DEPT, loginRO.get(0).getDpt());
 

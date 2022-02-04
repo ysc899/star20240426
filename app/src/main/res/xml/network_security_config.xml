@@ -10,7 +10,8 @@
 
         <domain includeSubdomains="true">star.seegenemedical.com</domain>
         <domain includeSubdomains="true">star2.seegenemedical.com</domain>
-<!--        <domain includeSubdomains="true">smf-star.seesoft.co.kr</domain>-->
+<!--        <domain includeSubdomains="true">starinfo.seegenemedical.com</domain>-->
+        <domain includeSubdomains="true">smf-star.seesoft.co.kr</domain>
         <!-- STAR API -->
         <domain includeSubdomains="true">100.100.50.215</domain>
     </domain-config>

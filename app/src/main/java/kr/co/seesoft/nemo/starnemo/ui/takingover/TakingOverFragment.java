@@ -17,19 +17,26 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import kr.co.seesoft.nemo.starnemo.R;
+import kr.co.seesoft.nemo.starnemo.api.ro.HospitalRegisterRO;
 import kr.co.seesoft.nemo.starnemo.api.ro.VisitPlanRO;
 import kr.co.seesoft.nemo.starnemo.db.vo.TakingOverVO;
 import kr.co.seesoft.nemo.starnemo.nemoapi.ro.NemoVisitListRO;
 import kr.co.seesoft.nemo.starnemo.ui.dialog.CustomDrawDialog;
+import kr.co.seesoft.nemo.starnemo.ui.register.RegisterViewModel;
 import kr.co.seesoft.nemo.starnemo.util.AndroidUtil;
 import kr.co.seesoft.nemo.starnemo.util.Const;
 import kr.co.seesoft.nemo.starnemo.util.DateUtil;
@@ -41,6 +48,11 @@ public class TakingOverFragment extends Fragment {
     private NemoVisitListRO visitHospital;
     /** 뷰모델 */
     private TakingOverViewModel takingOverViewModel;
+    /** 부모 뷰모델 */
+    private RegisterViewModel parentViewModel;
+
+
+
     /** context */
     private Context context;
 
@@ -60,6 +72,11 @@ public class TakingOverFragment extends Fragment {
 
         takingOverViewModel =
                 new ViewModelProvider(this).get(TakingOverViewModel.class);
+
+
+        parentViewModel = ViewModelProviders.of(getActivity()).get(RegisterViewModel.class);
+
+
         View root = inflater.inflate(R.layout.fragment_takingover, container, false);
 
 
@@ -100,7 +117,7 @@ public class TakingOverFragment extends Fragment {
         visitHospital = (NemoVisitListRO) getArguments().getSerializable("visit_hospital");
         takingOverViewModel.setHospitalInfo(visitHospital);
         takingOverViewModel.setRegisterDate(DateUtil.getDate(getArguments().getString("register_day", DateUtil.getFormatString(new Date(), "yyyyMMdd")), "yyyyMMdd"));
-        takingOverViewModel.setNemoRepository();
+//        takingOverViewModel.setNemoRepository();
 
         takingOverViewModel.getRegisterDate().observe(getViewLifecycleOwner(), new Observer<Date>() {
             @Override
@@ -121,28 +138,22 @@ public class TakingOverFragment extends Fragment {
         int urine = getArguments().getInt("urine");
         int other = getArguments().getInt("other");
 
-        takingOverViewModel.getTakingOverList().observe(getViewLifecycleOwner(), new Observer<List<TakingOverVO>>() {
-            @Override
-            public void onChanged(List<TakingOverVO> takingOverVOS) {
+        TakingOverVO vo = new TakingOverVO();
+        vo.sst = sst;
+        vo.edta = edta;
+        vo.urine = urine;
+        vo.other = other;
 
-                TakingOverVO vo = null;
-                if(takingOverVOS.size() == 0){
-                    vo = new TakingOverVO();
-                    vo.sst = sst;
-                    vo.edta = edta;
-                    vo.urine = urine;
-                    vo.other = other;
+        String scanJson = getArguments().getString("scanList", "");
 
-                }else{
-                    vo = takingOverVOS.get(0);
-                    vo.sst += sst;
-                    vo.edta += edta;
-                    vo.urine += urine;
-                    vo.other += other;
-                }
-                takingOverViewModel.setTakingOverInfo(vo);
-            }
-        });
+        Gson gson = new Gson();
+
+        List<HospitalRegisterRO> scanList = gson.fromJson(scanJson, new TypeToken<List<HospitalRegisterRO>>(){}.getType());
+
+        takingOverViewModel.setScanList(scanList);
+
+
+        takingOverViewModel.setTakingOverInfo(vo);
 
         takingOverViewModel.getTakingOverInfo().observe(getViewLifecycleOwner(), new Observer<TakingOverVO>() {
             @Override
@@ -166,6 +177,26 @@ public class TakingOverFragment extends Fragment {
                     etTakingOverOther.setText(String.valueOf(takingOverVO.other));
                 }
                 etTakingOverIssue.setText(takingOverVO.issue);
+            }
+        });
+
+        takingOverViewModel.getSuccessFinsishFlag().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+
+                if(aBoolean){
+
+                    AndroidUtil.log("true 처리 전 : " + parentViewModel.getClearDataFlag().getValue() );
+                    
+                    parentViewModel.getClearDataFlag().setValue(true);
+
+                    AndroidUtil.log("true 처리 후 : " + parentViewModel.getClearDataFlag().getValue() );
+                    
+                    Navigation.findNavController(getView()).popBackStack();
+
+                    AndroidUtil.log("화면 종료");
+                }
+
             }
         });
 
@@ -199,7 +230,7 @@ public class TakingOverFragment extends Fragment {
 
     protected void openDialog(int mode){
         String title;
-        String fileName = takingOverViewModel.getRegisterDateYmd() + "_" + takingOverViewModel.getHospitalCd();
+        String fileName = takingOverViewModel.getRegisterDateYmd() + "_" + takingOverViewModel.getHospitalCd() +"_"+ String.valueOf(System.currentTimeMillis())+"_";
         if(mode == Const.DRAW_MODE_TAKING){
             title = "인계 사인";
             fileName += "taking.png";
@@ -265,8 +296,11 @@ public class TakingOverFragment extends Fragment {
                         return;
                     }
 
-                    takingOverViewModel.saveTakingOverInfo(item);
+
+                    takingOverViewModel.sendTakingOverInfo(item);
                     AndroidUtil.toast(getContext(), "저장되었습니다.");
+
+                    break;
 
                 case R.id.btnTakingOverCancel:
 

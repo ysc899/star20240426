@@ -418,6 +418,13 @@ public class RegisterViewModel extends AndroidViewModel {
 //        HospitalRegisterRO target = this.hospitalRegisterList.getValue().stream().filter(t -> {
 //            return t.barcode.equals(barcode);
 //        }).findFirst().orElse(null);
+        AndroidUtil.log("확인 필요 : " + barcode);
+
+
+        this.hospitalRegisterList.getValue().forEach(it ->{
+            AndroidUtil.log(it.barcode);
+        });
+
 
         this.hospitalRegisterList.getValue().stream().filter(t -> {
             return t.barcode.equals(barcode);

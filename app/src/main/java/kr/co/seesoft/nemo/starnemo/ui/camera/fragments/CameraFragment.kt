@@ -375,6 +375,7 @@ class CameraFragment : Fragment() {
     }
 
     /** Declare and bind preview, capture and analysis use cases */
+    @SuppressLint("UnsafeExperimentalUsageError")
     private fun bindCameraUseCases() {
 
         // Get screen metrics used to setup camera for full screen resolution
@@ -470,6 +471,23 @@ class CameraFragment : Fragment() {
             } else {
                 camera!!.cameraControl.enableTorch(false)
             }
+
+            val exposureIndex = 10;
+//            val exposureIndex = 5;
+
+            if(CameraMainActivity.deviceModel == Const.DEVICE_A51) {
+
+                camera!!.cameraControl.setExposureCompensationIndex(exposureIndex)
+            }
+
+
+            AndroidUtil.log("------------------------- 카메라 정보 ------------------------------")
+
+            AndroidUtil.log( "lower : " + camera!!.cameraInfo.exposureState.exposureCompensationRange.lower);
+            AndroidUtil.log( "upper : " + camera!!.cameraInfo.exposureState.exposureCompensationRange.upper);
+            AndroidUtil.log( "index : " + camera!!.cameraInfo.exposureState.exposureCompensationIndex);
+
+            AndroidUtil.log("------------------------- 카메라 정보 끝------------------------------")
 
 
             // Attach the viewfinder's surface provider to preview use case

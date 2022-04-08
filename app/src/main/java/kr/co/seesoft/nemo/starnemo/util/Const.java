@@ -76,6 +76,7 @@ public class Const {
 
     public static final int DEVOCE_OS_10 = 10;
     public static final int DEVECE_OS_11 = 11;
+    public static final int DEVECE_OS_12 = 12;
 
     public static final String DEVICE_A90_MODEL_ID = "SM-A90";
     public static final String DEVICE_A51_MODEL_ID = "SM-A51";

@@ -591,7 +591,15 @@ class CameraFragment : Fragment() {
                         mat.postRotate(90f)
 
                         if(CameraMainActivity.deviceModel == Const.DEVICE_A52) {
-                            mat.preScale(0.85f, 0.85f)
+                            if(CameraMainActivity.deviceOs == Const.DEVECE_OS_12){
+
+                                //a52s os12 ㄷㅐ응
+                                    AndroidUtil.log("A52s os 12");
+                                mat.preScale(0.70f, 0.70f)
+
+                            }else {
+                                mat.preScale(0.85f, 0.85f)
+                            }
                         }else{
                             mat.preScale(0.70f, 0.70f)
 

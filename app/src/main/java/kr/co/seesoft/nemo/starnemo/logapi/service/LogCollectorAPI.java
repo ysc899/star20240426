@@ -52,7 +52,9 @@ public class LogCollectorAPI {
 
         progressDialog = new CustomProgressDialog(context);
 
-        OkHttpClient client = new OkHttpClient.Builder().build();
+//        OkHttpClient client = new OkHttpClient.Builder().build();
+
+        OkHttpClient client = TrustOkHttpClientUtil.getUnsafeOkHttpClient().build();
 
         Gson gson = new GsonBuilder()
                 .setLenient()

@@ -28,7 +28,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class StarAPI {
 
-    private final String BASE_URL = "http://100.100.50.215:8001/";
+//    private final String BASE_URL = "http://100.100.50.215:8001/";
+    private final String BASE_URL = "http://219.252.39.216:8001/";
 
     private StarApiInterface apis;
 

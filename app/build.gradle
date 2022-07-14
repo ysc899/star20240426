@@ -10,8 +10,8 @@ android {
         applicationId "kr.co.seesoft.nemo.starnemo"
         minSdkVersion 28
         targetSdkVersion 30
-        versionCode 21
-        versionName "1.114"
+        versionCode 25
+        versionName "1.117"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

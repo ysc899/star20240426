@@ -537,6 +537,7 @@ public class RegisterViewModel extends AndroidViewModel {
         this.scanCount.setValue(0);
 
         if(this.getHospitalCd().equals("36246") && BuildConfig.DEBUG) {
+//        if(this.getHospitalCd().equals("36246")) {
 
 
             SelectmClisMasterPO starParam = new SelectmClisMasterPO();

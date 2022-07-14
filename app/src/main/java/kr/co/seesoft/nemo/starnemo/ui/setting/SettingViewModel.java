@@ -50,7 +50,7 @@ public class SettingViewModel extends AndroidViewModel {
     private String userId;
 
 
-    private MutableLiveData<Boolean> progressFlag;
+    private MutableLiveData<Boolean> progressFlag, progressFlag2;
 
 //    private CustomProgressDialog progressDialog;
 
@@ -106,6 +106,9 @@ public class SettingViewModel extends AndroidViewModel {
         progressFlag = new MediatorLiveData<>();
         progressFlag.setValue(false);
 
+        progressFlag2 = new MediatorLiveData<>();
+        progressFlag2.setValue(false);
+
         apiHandler = new Handler(Looper.myLooper()){
             @Override
             public void handleMessage(@NonNull Message msg) {
@@ -113,6 +116,7 @@ public class SettingViewModel extends AndroidViewModel {
 
                 progressFlag.setValue(false);
 
+                progressFlag2.setValue(false);
                 switch (msg.what){
                     case 200:
 
@@ -154,6 +158,15 @@ public class SettingViewModel extends AndroidViewModel {
 
     public MutableLiveData<Boolean> getProgressFlag() {
         return progressFlag;
+    }
+
+
+    public MutableLiveData<Boolean> getProgressFlag2() {
+        return progressFlag2;
+    }
+
+    public void setProgressFlag2(MutableLiveData<Boolean> progressFlag2) {
+        this.progressFlag2 = progressFlag2;
     }
 
     public boolean isGetDatas() {

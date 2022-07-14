@@ -53,6 +53,8 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -439,6 +441,9 @@ public class RegisterFragment extends Fragment {
         }
     }
 
+    boolean mSendPressed = false;
+
+
     protected class BtnClick implements View.OnClickListener {
         @Override
         public void onClick(View view) {
@@ -466,7 +471,37 @@ public class RegisterFragment extends Fragment {
                     break;
 
                 case R.id.btnRegisterSend:
+
+
                     AndroidUtil.log("전송 버튼 누름");
+
+                    if(mSendPressed){
+                        AndroidUtil.toast(context, "처리중 입니다.");
+                        return;
+                    }
+
+                    btnSend.setEnabled(false);
+                    mSendPressed = true;
+
+                    Handler tempHandler = new Handler(Looper.myLooper()) {
+                        @Override
+                        public void handleMessage(@NonNull Message msg) {
+                            super.handleMessage(msg);
+                            mSendPressed = false;
+                            btnSend.setEnabled(true);
+                        }
+                    };
+                    tempHandler.sendEmptyMessageDelayed(0, 2000);
+
+//                    new Timer().schedule(new TimerTask() {
+//                        @Override
+//                        public void run() {
+//                            mSendPressed = false;
+//                            btnSend.setEnabled(true);
+//                        }
+//                    }, 1000);
+
+                    AndroidUtil.log("전송 프로세스 시작");
 
 
                     if(registerViewModel.getHospitalRegisterList().getValue().stream().filter(it -> it.scanFlag).count() > 0){

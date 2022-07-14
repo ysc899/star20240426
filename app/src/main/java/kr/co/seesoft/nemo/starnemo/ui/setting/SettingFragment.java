@@ -21,6 +21,7 @@ import java.util.List;
 import kr.co.seesoft.nemo.starnemo.R;
 import kr.co.seesoft.nemo.starnemo.db.vo.PictureVO;
 import kr.co.seesoft.nemo.starnemo.ui.dialog.CustomIngProgressDialog;
+import kr.co.seesoft.nemo.starnemo.ui.dialog.CustomProgressDialog;
 import kr.co.seesoft.nemo.starnemo.util.AndroidUtil;
 
 public class SettingFragment extends Fragment {
@@ -34,6 +35,8 @@ public class SettingFragment extends Fragment {
     Button btnSave, btnSendLog;
 
     private CustomIngProgressDialog progressDialog;
+
+    private CustomProgressDialog progressDialog2;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -156,6 +159,20 @@ public class SettingFragment extends Fragment {
                     progressDialog.show();
                 }else{
                     progressDialog.dismiss();
+                }
+
+            }
+        });
+
+        progressDialog2 = new CustomProgressDialog(getContext());
+        settingViewModel.getProgressFlag2().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+
+                if(aBoolean){
+                    progressDialog2.show();
+                }else{
+                    progressDialog2.dismiss();
                 }
 
             }

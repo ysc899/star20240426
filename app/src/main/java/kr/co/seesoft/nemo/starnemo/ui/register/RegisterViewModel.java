@@ -397,6 +397,7 @@ public class RegisterViewModel extends AndroidViewModel {
 
     public void scanHospitalRegisterBarcode(String barcode){
 
+
         if(barcode.length() != 12){
             //바코드가 12자리가 아닌경우 그냥 패스
             return;
@@ -404,14 +405,27 @@ public class RegisterViewModel extends AndroidViewModel {
 
         //날짜 확인
         int dayCount = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
-        String barcodeDay = StringUtils.substring(barcode, 2, 5);
+
+//        if(BuildConfig.DEBUG){
+//            dayCount = 221;
+//        }
+
+
+        String barcodeDay = StringUtils.substring(barcode, 1, 4);
 
         int barcodeDayCount = Integer.valueOf(barcodeDay);
 
+//        AndroidUtil.log("*******************************");
+//        AndroidUtil.log("barcode : " + barcode);
+//        AndroidUtil.log("barcodeDay : " + barcodeDay);
+//        AndroidUtil.log("barcodeDayCount : " + barcodeDayCount);
+//        AndroidUtil.log("dayCount : " + dayCount);
+//        AndroidUtil.log("dayCount != barcodeDayCount : " + (dayCount != barcodeDayCount));
+//        AndroidUtil.log("*******************************");
 
         if(dayCount != barcodeDayCount) {
-            String barcodeNumber = StringUtils.substring(barcode, 5, 10);
-            AndroidUtil.toast(getApplication(), "접수 일자 확인이 필요한 바코드 입니다. \n 접수번호 : "+ barcodeNumber);
+            String barcodeNumber = StringUtils.substring(barcode, 5, 11);
+            AndroidUtil.toast(getApplication(), "접수 일자 확인이 필요\n 접수번호 : "+ barcodeNumber);
             return;
         }
 
@@ -497,7 +511,7 @@ public class RegisterViewModel extends AndroidViewModel {
         int other = 0;
 
         for(String barcode : barcodes){
-            String checkSum = StringUtils.substring(barcode, barcode.length() - 2, barcode.length() - 1);
+            String checkSum = StringUtils.substring(barcode, barcode.length() - 1, barcode.length());
 
             int checkNum = Integer.valueOf(checkSum);
 
@@ -536,7 +550,8 @@ public class RegisterViewModel extends AndroidViewModel {
         this.noScanCount.setValue(this.hospitalRegisterList.getValue().size());
         this.scanCount.setValue(0);
 
-        if(this.getHospitalCd().equals("36246") && BuildConfig.DEBUG) {
+//        if(this.getHospitalCd().equals("36246") && BuildConfig.DEBUG) {
+        if(this.getHospitalCd().equals("15710") && BuildConfig.DEBUG) {
 //        if(this.getHospitalCd().equals("36246")) {
 
 

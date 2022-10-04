@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.google.android.gms.measurement.internal.AppMeasurementDynamiteService;
 import com.google.gson.Gson;
@@ -116,6 +117,12 @@ public class StarAPI {
 
         param.setInstCd("01");
         param.setAcceptType("S");
+
+        AndroidUtil.log("/////////////////////////");
+        AndroidUtil.log(param.toString());
+
+        Log.i("hopalt", param.toString());
+        AndroidUtil.log("/////////////////////////");
 
         Call<SelectmClisMasterRO> call = apis.SP_SelectmCLisMasterRequest(param);
 

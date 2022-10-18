@@ -66,6 +66,8 @@ class CameraMainActivity : AppCompatActivity() {
             CameraMainActivity.deviceModel = Const.DEVICE_A52
         }else if(Build.MODEL.startsWith(Const.DEVICE_A51_MODEL_ID)){
             CameraMainActivity.deviceModel = Const.DEVICE_A51
+        }else if(Build.MODEL.startsWith(Const.DEVICE_A53_MODEL_ID)){
+            CameraMainActivity.deviceModel = Const.DEVICE_A53
         }else{
             CameraMainActivity.deviceModel = Const.DEVICE_A90
         }

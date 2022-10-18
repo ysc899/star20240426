@@ -600,6 +600,9 @@ class CameraFragment : Fragment() {
                             }else {
                                 mat.preScale(0.85f, 0.85f)
                             }
+                        }else if(CameraMainActivity.deviceModel == Const.DEVICE_A53) {
+                            mat.preScale(0.605f, 0.605f)
+
                         }else{
                             mat.preScale(0.70f, 0.70f)
 

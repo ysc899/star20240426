@@ -73,6 +73,7 @@ public class Const {
     public static final int DEVICE_A90 = 90;
     public static final int DEVICE_A51 = 51;
     public static final int DEVICE_A52 = 52;
+    public static final int DEVICE_A53 = 53;
 
     public static final int DEVOCE_OS_10 = 10;
     public static final int DEVECE_OS_11 = 11;
@@ -81,6 +82,7 @@ public class Const {
     public static final String DEVICE_A90_MODEL_ID = "SM-A90";
     public static final String DEVICE_A51_MODEL_ID = "SM-A51";
     public static final String DEVICE_A52_MODEL_ID = "SM-A52";
+    public static final String DEVICE_A53_MODEL_ID = "SM-A53";
 
 
 }

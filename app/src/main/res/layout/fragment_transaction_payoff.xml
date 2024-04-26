@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".ui.transaction.TransactionFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/border_bottom"
+        app:layout_constraintTop_toTopOf="@+id/topMenuLayout"
+        tools:layout_editor_absoluteX="1dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tvSearchDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="18dp"
+            android:paddingEnd="35dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_spinner_rect"
+            android:fontFamily="@font/notosansmedium"
+            android:text="2023년 08월"
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHospitalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="18dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text=""
+            android:textColor="#333333"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout1"
+        app:layout_constraintBottom_toTopOf="@+id/bottomButton"
+        tools:layout_editor_absoluteX="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:background="#545F71"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:background="#545F71"
+                android:fontFamily="@font/notosansmedium"
+                android:text="수금일시"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#545F71"
+                android:fontFamily="@font/notosansmedium"
+                android:text="수금액"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@+id/textView1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="#545F71"
+                android:fontFamily="@font/notosansmedium"
+                android:text="수금방법"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvViewList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/border_all"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+        <LinearLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/border_all"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border_round_fill_rect"
+                android:gravity="center"
+                android:textColor="#FF000000"
+                android:text="@string/empty_list"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutBottom"
+            android:layout_width="378dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="-2dp"
+            android:background="#DDDDDD"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/rvViewList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conLayoutCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:paddingBottom="10dp"
+        android:visibility="gone"
+        android:background="@drawable/border_round_fill_blue_rect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomButton">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="카드번호"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardNo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView21"
+            app:layout_constraintTop_toTopOf="@+id/textView21"
+            app:layout_constraintBottom_toBottomOf="@+id/textView21"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="할부개월"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView21" />
+
+        <TextView
+            android:id="@+id/tvInstallment"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/border_round_rect"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView22"
+            app:layout_constraintTop_toTopOf="@+id/textView22"
+            app:layout_constraintBottom_toBottomOf="@+id/textView22"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="승인일시"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView22" />
+
+        <TextView
+            android:id="@+id/tvApprovalDate"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/border_round_rect"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView23"
+            app:layout_constraintTop_toTopOf="@+id/textView23"
+            app:layout_constraintBottom_toBottomOf="@+id/textView23"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="승인번호"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView23" />
+
+        <TextView
+            android:id="@+id/tvApprovalNo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/border_round_rect"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toTopOf="@+id/textView24"
+            app:layout_constraintBottom_toBottomOf="@+id/textView24"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="승인금액"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView24" />
+
+        <TextView
+            android:id="@+id/tvCardPay"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/border_round_rect"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView25"
+            app:layout_constraintTop_toTopOf="@+id/textView25"
+            app:layout_constraintBottom_toBottomOf="@+id/textView25"
+            tools:ignore="NotSibling" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conLayoutBank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:paddingBottom="10dp"
+        android:visibility="gone"
+        android:background="@drawable/border_round_fill_blue_rect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomButton">
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="입금은행"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvBankName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView31"
+            app:layout_constraintTop_toTopOf="@+id/textView31"
+            app:layout_constraintBottom_toBottomOf="@+id/textView31"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="입금계좌"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView31" />
+
+        <TextView
+            android:id="@+id/tvBankNo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView32"
+            app:layout_constraintTop_toTopOf="@+id/textView32"
+            app:layout_constraintBottom_toBottomOf="@+id/textView32"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="입금일시"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView32" />
+
+        <TextView
+            android:id="@+id/tvBankDate"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView33"
+            app:layout_constraintTop_toTopOf="@+id/textView33"
+            app:layout_constraintBottom_toBottomOf="@+id/textView33"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="입금금액"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView33" />
+
+        <TextView
+            android:id="@+id/tvBankPayment"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView34"
+            app:layout_constraintTop_toTopOf="@+id/textView34"
+            app:layout_constraintBottom_toBottomOf="@+id/textView34"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="내역"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView34" />
+
+        <TextView
+            android:id="@+id/tvBankEtc"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView35"
+            app:layout_constraintTop_toTopOf="@+id/textView35"
+            app:layout_constraintBottom_toBottomOf="@+id/textView35"
+            tools:ignore="NotSibling" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomButton"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="18dp"
+            android:background="@drawable/n_btn_02"
+            android:text="취소"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topMenuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/n_bg_gradient"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/n_icon_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="수금 내역"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/n_icon_home"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

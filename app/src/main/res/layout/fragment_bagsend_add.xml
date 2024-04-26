@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".ui.bagsend.add.BagSendAddFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topMenuLayout">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="발송지점"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCpbgSendLocCntrNm"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCpbgSendLocCntrNm" />
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spCpbgSendLocCntrNm"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginStart="100dp"-->
+<!--            android:textColor="@color/rowTextColor"-->
+<!--            android:background="@drawable/border_round_spinner_rect"-->
+<!--            android:popupBackground="@drawable/btn_01"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/textView11"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:ignore="NotSibling" />-->
+
+        <TextView
+            android:id="@+id/tvCpbgSendLocCntrNm"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:textSize="15sp"
+            android:text="111"
+            android:gravity="center_vertical"
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="도착센터"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spCpbgArvlLocCntrNm"
+            app:layout_constraintBottom_toBottomOf="@+id/spCpbgArvlLocCntrNm" />
+
+        <Spinner
+            android:id="@+id/spCpbgArvlLocCntrNm"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:textColor="@color/rowTextColor"
+            android:background="@drawable/border_round_spinner_rect"
+            android:popupBackground="@drawable/btn_01"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@id/textView11"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="운송구분"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spCpbgTrptDivNm"
+            app:layout_constraintBottom_toBottomOf="@+id/spCpbgTrptDivNm" />
+
+        <Spinner
+            android:id="@+id/spCpbgTrptDivNm"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:textColor="@color/rowTextColor"
+            android:background="@drawable/border_round_spinner_rect"
+            android:popupBackground="@drawable/btn_01"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@id/textView12"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="행낭수량"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etCpbgQty"
+            app:layout_constraintBottom_toBottomOf="@+id/etCpbgQty" />
+
+        <EditText
+            android:id="@+id/etCpbgQty"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:hint=""
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:textSize="15sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@id/textView13"
+            tools:ignore="NotSibling" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView15"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:text="기타수량"-->
+<!--                android:textColor="#FF545F71"-->
+<!--                android:textSize="12sp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:gravity="center"-->
+<!--                android:background="@drawable/border_round_fill_rect"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/etEtcQty"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/etEtcQty" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etEtcQty"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginStart="100dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:paddingStart="10dp"-->
+<!--                android:background="@drawable/border_round_rect"-->
+<!--                android:hint=""-->
+<!--                android:imeOptions="actionDone"-->
+<!--                android:inputType="number"-->
+<!--                android:textSize="15sp"-->
+<!--                android:text=""-->
+<!--                app:layout_constraintStart_toEndOf="@+id/textView15"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/textView14"-->
+<!--                tools:ignore="NotSibling" />-->
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="출발일자"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCpbgSendDt"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCpbgSendDt" />
+
+        <TextView
+            android:id="@+id/tvCpbgSendDt"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:paddingTop="5dp"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:background="@drawable/border_round_spinner_rect"
+            android:text="2023년 08월 03일"
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@id/textView14"
+            tools:ignore="NotSibling"  />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="출발시간"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCpbgSendTm"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCpbgSendTm" />
+
+        <TextView
+            android:id="@+id/tvCpbgSendTm"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:textAlignment="center"
+            android:paddingTop="5dp"
+            android:textSize="15sp"
+            android:background="@drawable/border_round_spinner_rect"
+            android:text="12시 10분"
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toEndOf="@+id/textView31"
+            app:layout_constraintTop_toBottomOf="@id/textView16"
+            tools:ignore="NotSibling"  />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="도착예정일자"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCpbgArvlPragDt"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCpbgArvlPragDt" />
+
+        <TextView
+            android:id="@+id/tvCpbgArvlPragDt"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:paddingTop="5dp"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:background="@drawable/border_round_spinner_rect"
+            android:text="2023년 08월 03일"
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@id/textView31"
+            tools:ignore="NotSibling"  />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="도착예정시간"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCpbgArvlPragTm"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCpbgArvlPragTm" />
+
+        <TextView
+            android:id="@+id/tvCpbgArvlPragTm"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:paddingTop="5dp"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:background="@drawable/border_round_spinner_rect"
+            android:text="12시 10분"
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toEndOf="@+id/textView32"
+            app:layout_constraintTop_toBottomOf="@id/textView17"
+            tools:ignore="NotSibling"  />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="차량명"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spCpbgSndvhclCmpNm"
+            app:layout_constraintBottom_toBottomOf="@+id/spCpbgSndvhclCmpNm" />
+
+        <Spinner
+            android:id="@+id/spCpbgSndvhclCmpNm"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:textSize="15sp"
+            android:textColor="@color/rowTextColor"
+            android:background="@drawable/border_round_spinner_rect"
+            android:popupBackground="@drawable/btn_01"
+            app:layout_constraintStart_toEndOf="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@id/textView32"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="차량번호"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etCpbgSndvhclNo"
+            app:layout_constraintBottom_toBottomOf="@+id/etCpbgSndvhclNo" />
+
+        <EditText
+            android:id="@+id/etCpbgSndvhclNo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:hint=""
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="15sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@id/textView18"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="송장번호"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etCpbgInvcNo"
+            app:layout_constraintBottom_toBottomOf="@+id/etCpbgInvcNo" />
+
+        <EditText
+            android:id="@+id/etCpbgInvcNo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
+            android:hint=""
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:textSize="15sp"
+            android:text=""
+            android:textColor="@color/rowTextColor"
+            app:layout_constraintStart_toEndOf="@+id/textView20"
+            app:layout_constraintTop_toBottomOf="@id/textView19"
+            tools:ignore="NotSibling" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView21"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:text="발송자"-->
+<!--                android:textColor="#FF545F71"-->
+<!--                android:textSize="12sp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:gravity="center"-->
+<!--                android:background="@drawable/border_round_fill_rect"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/etSenderNm"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/etSenderNm" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etSenderNm"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginStart="100dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:paddingStart="10dp"-->
+<!--                android:background="@drawable/border_round_rect"-->
+<!--                android:hint=""-->
+<!--                android:imeOptions="actionDone"-->
+<!--                android:inputType="text"-->
+<!--                android:textSize="15sp"-->
+<!--                android:text=""-->
+<!--                app:layout_constraintStart_toEndOf="@+id/textView21"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/textView20"-->
+<!--                tools:ignore="NotSibling" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutSupt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="510dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="기타내용"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@drawable/border_round_fill_rect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nsvCpbgSendCont" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvCpbgSendCont"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="100dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/border_round_rect"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <EditText
+                android:id="@+id/etCpbgSendCont"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint=""
+                android:padding="5dp"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionDone"
+                android:inputType="text|textMultiLine"
+                android:textSize="15sp"
+                android:minLines="15"
+                android:text=""
+                android:textColor="@color/rowTextColor"
+                android:gravity="top"/>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="#ffffff"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/n_btn_05"
+            android:text="취소"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSave"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:background="@drawable/n_btn_02"
+            android:text="저장"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/n_btn_01"
+            android:text="발송"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSave"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topMenuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/n_bg_gradient"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/n_icon_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="행낭 발송 등록"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/n_icon_home"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

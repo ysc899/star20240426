@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutLeft"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="#DDDDDD"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvRegDt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="등록일자"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/rowTextColor"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvRecpDt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="접수일자"
+            android:textColor="@color/rowTextColor"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvRecpNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="접수번호"
+            android:textColor="@color/rowTextColor"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvPatnNm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="환자명"
+            android:textColor="@color/rowTextColor"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvCustSuptUpdtRqstStatNm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="요청상태"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/rowTextColor"
+            android:gravity="center|right"
+            android:visibility="visible"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRight"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="#DDDDDD"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#DDDDDD"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp"></LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

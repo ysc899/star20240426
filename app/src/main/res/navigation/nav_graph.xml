@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/permissions_fragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.camera.fragments.PermissionsFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.camera.fragments.PermissionsFragment"
         android:label="PermissionsFragment" >
 
         <action
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/camera_fragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.camera.fragments.CameraFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.camera.fragments.CameraFragment"
         android:label="CameraFragment" >
 
         <action
@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/gallery_fragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.camera.fragments.GalleryFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.camera.fragments.GalleryFragment"
         android:label="GalleryFragment" >
         <argument
             android:name="root_directory"
@@ -65,7 +65,7 @@
 
     <fragment
         android:id="@+id/galleryListFragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.camera.fragments.GalleryListFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.camera.fragments.GalleryListFragment"
         android:label="GalleryListFragment" >
         <argument
             android:name="root_directory"

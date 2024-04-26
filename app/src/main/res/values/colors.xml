@@ -7,7 +7,9 @@
     <color name="icFocused">#DDFFFFFF</color>
     <color name="icPressed">#AAFFFFFF</color>
 
-    <color name="backColor">#50222F</color>
+    <color name="backColor">#820108</color>
 
-    <color name="navMenuBackColor">#7a4a58</color>
+    <color name="navMenuBackColor">#820108</color>
+
+    <color name="rowTextColor">#000000</color>
 </resources>

@@ -5,66 +5,105 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_marginLeft="2dp"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutLeft"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#DDDDDD"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"></LinearLayout>
 
     <TextView
         android:id="@+id/tvRegisterOrder"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="5dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/notosansmedium"
-        android:text="TextView"
-        android:textColor="#999999"
+        android:gravity="start"
+        android:text="10"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvRegisterId"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="5dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/notosansmedium"
-        android:text="TextView"
-        android:textColor="#999999"
+        android:gravity="start"
+        android:text="7600005"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555" />
-
-    <TextView
-        android:id="@+id/tvRegisterSpecimen"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:fontFamily="@font/notosansmedium"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="#999999"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvRegisterOrder"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvRegisterName"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
+        android:layout_marginStart="5dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/notosansmedium"
-        android:text="TextView"
-        android:textColor="#999999"
+        android:gravity="start"
+        android:text="홍길동"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvRegisterId"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvRecpNo"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/notosansmedium"
+        android:gravity="start"
+        android:text="99561"
+        android:textColor="@color/rowTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvRegisterName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRegisterSpecimen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/notosansmedium"
+        android:gravity="start"
+        android:text="TextView"
+        android:textColor="@color/rowTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvRecpNo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
     <LinearLayout
+        android:id="@+id/linearLayoutRight"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#DDDDDD"
+        android:orientation="vertical"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="2px"
-        android:background="#cccccc"
+        android:layout_height="2dp"
+        android:background="#DDDDDD"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

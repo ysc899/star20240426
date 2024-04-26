@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kr.co.seesoft.nemo.starnemo">
+    package="kr.co.seesoft.nemo.starnemoapp">
     <!-- 퍼미션 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,6 +14,12 @@
     <!-- 블루투스 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- V-CAT -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <queries>
+        <package android:name="service.vcat.smartro.com.vcat" />
+    </queries>
 
 <!--        android:icon="@mipmap/ic_launcher"-->
     <application
@@ -25,27 +31,38 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:largeHeap="true"
-        android:theme="@style/loginTheme">
+        android:theme="@style/loginTheme"
+        android:usesCleartextTraffic="true">
 
 
         <service
-            android:name=".service.LocationUpdatesService"
+            android:name="kr.co.seesoft.nemo.starnemoapp.service.LocationUpdatesService"
             android:enabled="true"
             android:exported="true"
             android:foregroundServiceType="location" />
 
-        <activity android:name=".ui.camera.CameraMainActivity"
+        <activity android:name="kr.co.seesoft.nemo.starnemoapp.ui.camera.CameraMainActivity"
             android:theme="@style/cameraTheme"
             />
-        
+
         <activity
-            android:name=".ui.MainMenuActivity"
+            android:name="kr.co.seesoft.nemo.starnemoapp.ui.MainActivity"
             android:label="@string/title_activity_main_menu"
             android:theme="@style/menuTheme"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             />
 
-        <activity android:name=".ui.LoginActivity"
+        <activity
+            android:name="kr.co.seesoft.nemo.starnemoapp.ui.MainMenuActivity"
+            android:label="@string/title_activity_main_menu"
+            android:theme="@style/menuTheme"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name="kr.co.seesoft.nemo.starnemoapp.ui.LoginActivity"
             android:theme="@style/loginTheme"
+            android:screenOrientation="portrait"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

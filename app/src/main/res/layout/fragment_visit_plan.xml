@@ -4,63 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f2f2"
+    android:background="#ffffff"
     tools:context=".ui.visitplan.VisitPlanFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="120dp"
-        android:background="#f2f2f2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        tools:layout_editor_absoluteX="1dp">
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#f2f2f2"
-            android:scaleType="fitXY"
-            android:src="@drawable/visit_paln_back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/border_bottom"
+        app:layout_constraintTop_toTopOf="@+id/topMenuLayout"
+        tools:layout_editor_absoluteX="1dp"
+        tools:ignore="MissingConstraints">
 
         <Button
             android:id="@+id/btnVisitPlanAdd"
-            android:layout_width="54dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/btn_01"
-            android:text="추가"
-            android:textColor="#333333"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/n_btn_plus"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnVisitPlanEdit"
-            android:layout_width="54dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/btn_01"
-            android:text="편집"
-            android:textColor="#333333"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/n_btn_edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btnVisitPlanPre"
-            android:layout_width="8dp"
+            android:layout_width="15dp"
             android:layout_height="17dp"
-            android:layout_marginTop="37dp"
+            android:layout_marginTop="22dp"
             android:layout_marginEnd="15dp"
-            android:background="@android:color/white"
+            android:background="@android:color/transparent"
             android:scaleType="centerInside"
             android:src="@drawable/date_arr_01"
             app:layout_constraintEnd_toStartOf="@+id/tvVisitPlanDate"
@@ -68,11 +52,11 @@
 
         <ImageButton
             android:id="@+id/btnVisitPlanNext"
-            android:layout_width="8dp"
+            android:layout_width="15dp"
             android:layout_height="17dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="37dp"
-            android:background="@android:color/white"
+            android:layout_marginTop="22dp"
+            android:background="@android:color/transparent"
             android:scaleType="centerInside"
             android:src="@drawable/date_arr_02"
             app:layout_constraintStart_toEndOf="@+id/tvVisitPlanDate"
@@ -82,8 +66,8 @@
             android:id="@+id/tvVisitPlanDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:background="@android:color/white"
+            android:layout_marginTop="3dp"
+            android:background="@android:color/transparent"
             android:fontFamily="@font/notosansmedium"
             android:text="2020년 12월 22일"
             android:textColor="#333333"
@@ -92,174 +76,240 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout6"
-            android:layout_width="378dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="80dp"
-            android:background="#f9f9f9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView10">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:background="#f9f9f9"
-                android:fontFamily="@font/notosansmedium"
-                android:text="순서"
-                android:textColor="#666666"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:background="#f9f9f9"
-                android:fontFamily="@font/notosansmedium"
-                android:text="병원코드"
-                android:textColor="#666666"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="100dp"
-                android:background="#f9f9f9"
-                android:fontFamily="@font/notosansmedium"
-                android:text="병원"
-                android:textColor="#666666"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:background="#f9f9f9"
-                android:fontFamily="@font/notosansmedium"
-                android:text="의뢰수"
-                android:textColor="#666666"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout5"
-                android:layout_width="match_parent"
-                android:layout_height="2px"
-                android:background="#cccccc"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="2px"
-                android:background="#cccccc"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvVisitPlanList"
-            android:layout_width="378dp"
-            android:layout_height="385dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/constraintLayout6"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:background="#f2f2f2"
-        tools:ignore="MissingConstraints">
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:background="#545F71"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout5">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#f2f2f2"
-            android:fontFamily="@font/scdream5"
-            android:text="일일방문 계획"
-            android:textColor="#4f2330"
-            android:textSize="24sp"
+            android:layout_marginStart="10dp"
+            android:background="#545F71"
+            android:fontFamily="@font/notosansmedium"
+            android:text="번호"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:background="#545F71"
+            android:fontFamily="@font/notosansmedium"
+            android:text="고객코드"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="120dp"
+            android:background="#545F71"
+            android:fontFamily="@font/notosansmedium"
+            android:text="고객명"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="#f9f9f9"
+            android:fontFamily="@font/notosansmedium"
+            android:text="의뢰수"
+            android:textColor="#666666"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVisitPlanList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:background="@drawable/border_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+    <LinearLayout
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:background="@drawable/border_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/border_round_fill_rect"
+            android:gravity="center"
+            android:textColor="#FF000000"
+            android:text="@string/empty_list"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginTop="-2dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:background="#DDDDDD"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/rvVisitPlanList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_marginBottom="56dp"
-        android:background="#f2f2f2"
+        android:layout_height="73dp"
+        android:background="#ffffff"
+        android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp">
 
         <Button
             android:id="@+id/btnVisitPlanCopy"
-            android:layout_width="89dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="30dp"
-            android:background="@drawable/btn_02"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="18dp"
+            android:background="@drawable/n_btn_02"
             android:text="복사"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <Button
             android:id="@+id/btnVisitPlanCancel"
-            android:layout_width="89dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="30dp"
-            android:background="@drawable/btn_02"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:background="@drawable/n_btn_05"
             android:text="취소"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/btnVisitPlanSave"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
 
         <Button
             android:id="@+id/btnVisitPlanSend"
-            android:layout_width="89dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="28dp"
-            android:background="@drawable/btn_03"
-            android:text="전송"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:background="@drawable/n_btn_01"
+            android:text="저장"
+            android:visibility="gone"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnVisitPlanCancel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
 
         <Button
             android:id="@+id/btnVisitPlanSave"
-            android:layout_width="89dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="28dp"
-            android:background="@drawable/btn_03"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:background="@drawable/n_btn_01"
             android:text="저장"
             android:textColor="@android:color/white"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="visible"
+            app:layout_constraintStart_toEndOf="@+id/btnVisitPlanCancel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topMenuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/n_bg_gradient"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/n_icon_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="일일 방문계획"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/n_icon_home"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

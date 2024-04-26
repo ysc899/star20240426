@@ -4,93 +4,138 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutLeft"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="#DDDDDD"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lSendLeft"
+        android:layout_width="10dp"
+        android:layout_height="0dp"
+        android:background="#5CB85C"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lSendNoLeft"
+        android:layout_width="10dp"
+        android:layout_height="0dp"
+        android:background="#F0AD4E"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
+
+    <ImageView
+        android:id="@+id/icon_sort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/n_icon_sort"
+        android:layout_marginStart="2dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
     <TextView
         android:id="@+id/tvVisitPlanListOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:background="@android:color/white"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/notosansmedium"
         android:text="1"
-        android:textColor="#999999"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:background="@android:color/transparent"
-        android:text="|"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon_sort"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvVisitPlanListCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:background="@android:color/white"
+        android:layout_marginStart="60dp"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/notosansmedium"
         android:text="13455"
-        android:textColor="#999999"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvVisitPlanListName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="50dp"
         android:background="@android:color/transparent"
-        android:text="|"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/notosansmedium"
+        android:text="TextView"
+        android:textColor="@color/rowTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvVisitPlanListCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="38dp"
-        android:background="@android:color/white"
+        android:layout_marginEnd="18dp"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/notosansmedium"
         android:text="TextView"
-        android:textColor="#999999"
+        android:textColor="@color/rowTextColor"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvVisitPlanListName"
+    <ImageView
+        android:id="@+id/icon_rnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:background="@android:color/white"
-        android:fontFamily="@font/notosansmedium"
-        android:text="TextView"
-        android:textColor="#999999"
+        android:src="@drawable/n_icon_rnd"
+        android:layout_marginEnd="5dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
+        android:id="@+id/linearLayoutRight"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="#DDDDDD"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="2px"
-        android:background="#cccccc"
+        android:layout_height="2dp"
+        android:background="#DDDDDD"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

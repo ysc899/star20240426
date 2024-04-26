@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/n_bg_gradient"
+    tools:context=".ui.main.MainFragment">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/n_logo_top" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="316dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:srcCompat="@drawable/n_logo_h" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvDisp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@android:color/transparent"
+            tools:layout_editor_absoluteX="1dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <ImageButton
+                android:id="@+id/btnVisitPlan"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="12dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_01"
+                app:layout_constraintEnd_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/btnTransaction"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="12dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_02"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/btnBagSend"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_03"
+                app:layout_constraintEnd_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnVisitPlan"/>
+
+            <ImageButton
+                android:id="@+id/btnCustomer"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_04"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnTransaction" />
+
+            <ImageButton
+                android:id="@+id/btnMemo"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_05"
+                app:layout_constraintEnd_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnCustomer"/>
+
+            <ImageButton
+                android:id="@+id/btnContact"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:visibility="gone"
+                android:src="@drawable/n_menu_icon_06"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnCustomer"/>
+
+            <ImageButton
+                android:id="@+id/btnVOC"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_07"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnCustomer"/>
+
+            <TextView
+                android:id="@+id/tvCount"
+                android:layout_width="40dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_round_fill_yellow_rect"
+                android:textAlignment="center"
+                android:textColor="@color/rowTextColor"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/btnVOC"
+                app:layout_constraintTop_toTopOf="@+id/btnVOC" />
+
+            <ImageButton
+                android:id="@+id/btnItemSearch"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_08"
+                app:layout_constraintEnd_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnMemo"/>
+
+            <ImageButton
+                android:id="@+id/btnResultSearch"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_09"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnVOC"/>
+
+            <ImageButton
+                android:id="@+id/btnCustomerSupport"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/n_menu_icon_10"
+                app:layout_constraintEnd_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnItemSearch"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="316dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfig"
+        app:srcCompat="@drawable/n_logo_h" />
+
+
+    <ImageButton
+        android:id="@+id/btnConfig"
+        android:layout_width="87dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/n_btn_config" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

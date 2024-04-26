@@ -15,7 +15,7 @@
         android:background="@android:color/white"
         android:fontFamily="@font/notosansmedium"
         android:text="TextView"
-        android:textColor="#999999"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +28,7 @@
         android:background="@android:color/white"
         android:fontFamily="@font/notosansmedium"
         android:text="TextView"
-        android:textColor="#999999"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
         android:background="@android:color/white"
         android:fontFamily="@font/notosansmedium"
         android:text="TextView"
-        android:textColor="#999999"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,14 +54,14 @@
         android:background="@android:color/white"
         android:fontFamily="@font/notosansmedium"
         android:text="TextView"
-        android:textColor="#999999"
+        android:textColor="@color/rowTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="2px"
+        android:layout_height="2dp"
         android:background="#cccccc"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>

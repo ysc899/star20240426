@@ -24,7 +24,7 @@
     android:layoutDirection="ltr">
 
 
-    <kr.co.seesoft.nemo.starnemo.ui.component.PhotoViewPager
+    <kr.co.seesoft.nemo.starnemoapp.ui.component.PhotoViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/photo_view_pager" />

@@ -4,187 +4,249 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f2f2"
+    android:background="#ffffff"
     tools:context=".ui.notifications.NotificationsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/conLayoutInfo"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:background="#f2f2f2"
-        tools:ignore="MissingConstraints">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:paddingBottom="10dp"
+        android:visibility="visible"
+        android:background="@drawable/border_round_rect"
+        app:layout_constraintTop_toBottomOf="@+id/topMenuLayout">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#f2f2f2"
-            android:fontFamily="@font/scdream5"
-            android:text="환경설정"
-            android:textColor="#4f2330"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/textView21"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:text="버전"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/tvSettingVersion"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSettingVersion"/>
 
         <TextView
             android:id="@+id/tvSettingVersion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:background="#f2f2f2"
-            android:fontFamily="@font/scdream5"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
             android:text="버전"
-            android:textColor="#4f2330"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView"
+            android:textColor="#FF000000"
+            android:textSize="12sp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="@+id/textView21"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="181dp"
-        android:background="@drawable/setting_label_back"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="#f9f9f9"
-            android:fontFamily="@font/notosansmedium"
+            android:id="@+id/textView22"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:text="Serial Number"
-            android:textColor="#333333"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#FF545F71"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@android:color/transparent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/tvSettingSerial"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSettingSerial" />
 
         <TextView
             android:id="@+id/tvSettingSerial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="45dp"
-            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_round_rect"
             android:text="abcdefghiglk123"
-            android:textColor="#863049"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textColor="#FF000000"
+            android:textSize="12sp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toEndOf="@+id/textView22"
+            app:layout_constraintTop_toBottomOf="@id/textView21" />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="18dp"
+        android:background="@android:color/transparent"
+        android:text="설정변경"
+        android:textColor="#FF000000"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/conLayoutInfo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
-        android:layout_height="181dp"
+        android:layout_height="190dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/setting_label_back"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@drawable/border_round_rect"
+        app:layout_constraintTop_toBottomOf="@+id/textView41"
         tools:layout_editor_absoluteX="0dp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="#f9f9f9"
-            android:fontFamily="@font/notosansmedium"
-            android:text="설정변경"
-            android:textColor="#333333"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
             android:id="@+id/cbSettingAutologin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/notosansmedium"
             android:text="자동 로그인"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
             android:id="@+id/cbSettingAutoSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/notosansmedium"
             android:text="자동 재전송"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbSettingAutologin"
             app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
             android:id="@+id/cbSettingCameraSound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="190dp"
             android:fontFamily="@font/notosansmedium"
             android:text="카메라 셔터음"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
             android:id="@+id/cbSettingCameraThum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="190dp"
             android:layout_marginBottom="60dp"
             android:fontFamily="@font/notosansmedium"
             android:text="카메라 미리보기"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/cbSettingCameraSound"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
             android:id="@+id/cbSettingCameraSoundType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/notosansmedium"
             android:text="카메라 셔터음 크게"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/cbSettingCameraThum"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btnSettingSave"
-        android:layout_width="92dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/setting_btn_save"
-        android:fontFamily="@font/notosansmedium"
-        android:text="저장"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
-
-    <Button
-        android:id="@+id/btnSettingSendLog"
-        android:layout_width="192dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/setting_btn_save"
-        android:fontFamily="@font/notosansmedium"
-        android:text="로그 전송"
-        android:textColor="@android:color/white"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="#ffffff"
+        android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btnSettingSendLog"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:layout_marginEnd="90dp"
+            android:background="@drawable/n_btn_05"
+            android:text="로그 전송"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnSettingSave"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/n_btn_01"
+            android:text="저장"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSettingSendLog"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topMenuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/n_bg_gradient"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/n_icon_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosansmedium"
+            android:text="환경설정"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/n_icon_home"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,8 +17,8 @@
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <external-path
         name="photo"
-        path="Android/data/kr.co.seesoft.nemo.starnemo/files/STAR"/>
+        path="Android/data/kr.co.seesoft.nemo.starnemoapp/files/SeeStar"/>
     <external-path
         name="photo_media"
-        path="Android/media/kr.co.seesoft.nemo.starnemo/STAR"/>
+        path="Android/media/kr.co.seesoft.nemo.starnemoapp/SeeStar"/>
 </paths>

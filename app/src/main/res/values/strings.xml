@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">STAR</string>
+    <string name="app_name">SeeStar</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -51,8 +51,19 @@
     <string name="delete_title">확인</string>
 
     <string-array name="search_options">
-        <item>병원명</item>
-        <item>병원코드</item>
+        <item>고객명</item>
+        <item>고객코드</item>
         <item>담당자</item>
     </string-array>
+
+    <string-array name="month_options">
+        <item>일시불</item>
+        <item>2개월</item>
+        <item>3개월</item>
+        <item>4개월</item>
+        <item>5개월</item>
+        <item>6개월</item>
+    </string-array>
+
+    <string name="empty_list">조회된 데이터가 없습니다.</string>
 </resources>

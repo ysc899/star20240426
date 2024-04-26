@@ -8,15 +8,16 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.home.HomeFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.home.HomeFragment"
         android:label="@string/nav_home"
         tools:layout="@layout/fragment_home" />
 
+    <!-- Home -->
     <fragment
         android:id="@+id/navigation_menu"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.menu.MenuFragment"
-        android:label="@string/nav_mypage"
-        tools:layout="@layout/fragment_menu" >
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.menu.MenuFragment"
+        android:label="@string/nav_home"
+        tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_navigation_menu_to_visitPlanFragment"
             app:destination="@id/visitPlanFragment"
@@ -24,8 +25,66 @@
             app:exitAnim="@anim/fragment_close_exit"
             app:launchSingleTop="true" />
         <action
+            android:id="@+id/action_navigation_menu_to_transactionFragment"
+            app:destination="@id/transactionFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_navigation_menu_to_bagsendFragment"
+            app:destination="@id/bagsendFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_navigation_menu_to_customerFragment"
+            app:destination="@id/customerFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_navigation_menu_to_memoFragment"
+            app:destination="@id/memoFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_navigation_menu_to_departmentContactFragment"
+            app:destination="@id/departmentContactFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_vocFragment"
+            app:destination="@id/vocFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_resultSearchFragment"
+            app:destination="@id/resultSearchFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_customerSupportFragment"
+            app:destination="@id/customerSupportFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:launchSingleTop="true" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_setting"
+            app:destination="@id/navigation_setting" />
+
+
+        <action
             android:id="@+id/action_navigation_menu_to_accountFragment"
             app:destination="@id/accountFragment" />
+
         <action
             android:id="@+id/action_navigation_menu_to_statisFragment"
             app:destination="@id/statisFragment" />
@@ -33,19 +92,25 @@
 
     <fragment
         android:id="@+id/navigation_myinfo"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.dashboard.DashboardFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.dashboard.DashboardFragment"
         android:label="@string/nav_mypage"
         tools:layout="@layout/fragment_dashboard" />
 
-
+    <!-- 환경설정 -->
     <fragment
         android:id="@+id/navigation_setting"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.setting.SettingFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.setting.SettingFragment"
         android:label="@string/nav_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 일일 방문 계획 -->
     <fragment
         android:id="@+id/visitPlanFragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.visitplan.VisitPlanFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.visitplan.VisitPlanFragment"
         android:label="방문계획"
         tools:layout="@layout/fragment_visit_plan"
         >
@@ -55,15 +120,35 @@
         <action
             android:id="@+id/action_visitPlanFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_visitPlanFragment_to_registerRndFragment"
+            app:destination="@id/registerRndFragment" />
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_menu_to_back"
+            app:destination="@id/navigation_menu" />
     </fragment>
+
+    <!-- 일일 방문 계획 추가 -->
     <fragment
         android:id="@+id/visitPlanAddFragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.visitplanadd.VisitPlanAddFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.visitplanadd.VisitPlanAddFragment"
         android:label="fragment_visit_plan_add"
-        tools:layout="@layout/fragment_visit_plan_add" />
+        tools:layout="@layout/fragment_visit_plan_add">
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_menu_to_back"
+            app:destination="@id/visitPlanFragment" />
+    </fragment>
+
+    <!-- 의뢰지 접수 -->
     <fragment
         android:id="@+id/registerFragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.register.RegisterFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <argument
@@ -72,16 +157,97 @@
             app:nullable="true" />
         <argument
             android:name="visit_hospital"
-            app:argType="kr.co.seesoft.nemo.starnemo.nemoapi.ro.NemoVisitListRO"
+            app:argType="kr.co.seesoft.nemo.starnemoapp.nemoapi.ro.NemoVisitListRO"
             app:nullable="true"
             android:defaultValue="@null" />
         <action
             android:id="@+id/action_registerFragment_to_takingOverFragment"
             app:destination="@id/takingOverFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_resultsFragment"
+            app:destination="@id/registerResultsFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_VOCFragment"
+            app:destination="@id/registerVOCFragment" />
+        <action
+            android:id="@+id/action_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_menu_to_back"
+            app:destination="@id/visitPlanFragment" />
+
     </fragment>
+
+    <!-- 검사 결과 -->
+    <fragment
+        android:id="@+id/registerResultsFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.register.RegisterResultsFragment"
+        android:label="fragment_register_results"
+        tools:layout="@layout/fragment_register_results" >
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_menu_to_back"
+            app:destination="@id/registerFragment" />
+
+    </fragment>
+
+    <!-- 일일방문계획 VOC -->
+    <fragment
+        android:id="@+id/registerVOCFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.register.voc.VOCFragment"
+        android:label="fragment_register_voc"
+        tools:layout="@layout/fragment_register_voc">
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_menu_to_back"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <!-- 의뢰지 접수 RND -->
+    <fragment
+        android:id="@+id/registerRndFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.register.RegisterRndFragment"
+        android:label="fragment_register_rnd"
+        tools:layout="@layout/fragment_register_rnd" >
+        <argument
+            android:name="register_day"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="visit_hospital"
+            app:argType="kr.co.seesoft.nemo.starnemoapp.nemoapi.ro.NemoVisitListRO"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_takingOverFragment"
+            app:destination="@id/takingOverFragment" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_menu_to_back"
+            app:destination="@id/visitPlanFragment" />
+
+    </fragment>
+
+
+
+    <!-- [기존] 검체인수인계 및 온도점검 -->
     <fragment
         android:id="@+id/takingOverFragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.takingover.TakingOverFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.takingover.TakingOverFragment"
         android:label="TakingOverFragment">
 
         <argument
@@ -90,7 +256,7 @@
             app:nullable="true" />
         <argument
             android:name="visit_hospital"
-            app:argType="kr.co.seesoft.nemo.starnemo.api.ro.VisitPlanRO"
+            app:argType="kr.co.seesoft.nemo.starnemoapp.api.ro.VisitPlanRO"
             app:nullable="true"
             android:defaultValue="@null" />
         <argument
@@ -110,14 +276,304 @@
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
+
+    <!-- [기존] 거래처 -->
     <fragment
         android:id="@+id/accountFragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.account.AccountFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+
+    <!-- [기존] 접수 통계 관리 -->
     <fragment
         android:id="@+id/statisFragment"
-        android:name="kr.co.seesoft.nemo.starnemo.ui.statis.StatisFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.statis.StatisFragment"
         android:label="StatisFragment" />
+
+
+    <!-- 거래 대장 -->
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.transaction.TransactionFragment"
+        android:label="fragment_transaction"
+        tools:layout="@layout/fragment_transaction">
+        <action
+            android:id="@+id/action_visitPlanFragment_to_transactionDetailFragment"
+            app:destination="@id/transactionDetailFragment" />
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 거래 대장 - 병원 선택 상세-->
+    <fragment
+        android:id="@+id/transactionDetailFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.transaction.detail.TransactionDetailFragment"
+        android:label="fragment_transaction_detail"
+        tools:layout="@layout/fragment_transaction_detail">
+        <action
+            android:id="@+id/action_visitPlanFragment_to_transactionAgreeFragment"
+            app:destination="@id/transactionAgreeFragment" />
+        <action
+            android:id="@+id/action_visitPlanFragment_to_transactionPaymentFragment"
+            app:destination="@id/transactionPaymentFragment" />
+        <action
+            android:id="@+id/action_visitPlanFragment_to_transactionPayoffFragment"
+            app:destination="@id/transactionPayoffFragment" />
+        <action
+            android:id="@+id/action_visitPlanFragment_to_transactionPaysendFragment"
+            app:destination="@id/transactionPaysendFragment" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 거래 대장 - 약관동의 -->
+    <fragment
+        android:id="@+id/transactionAgreeFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.transaction.agree.TransactionAgreeFragment"
+        android:label="fragment_transaction_agree"
+        tools:layout="@layout/fragment_transaction_agree">
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 거래 대장 - 카드결제 -->
+    <fragment
+        android:id="@+id/transactionPaymentFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.transaction.payment.TransactionPaymentFragment"
+        android:label="fragment_transaction_payment"
+        tools:layout="@layout/fragment_transaction_payment">
+        <action
+            android:id="@+id/action_to_transactionPaymentHistoryFragment"
+            app:destination="@id/transactionPaymentHistoryFragment" />
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 거래 대장 - 카드결제 내역 -->
+    <fragment
+        android:id="@+id/transactionPaymentHistoryFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.transaction.payment.TransactionPaymentHistoryFragment"
+        android:label="fragment_transaction_paymenthistory"
+        tools:layout="@layout/fragment_transaction_payment_history">
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 거래 대장 - 수금내역 -->
+    <fragment
+        android:id="@+id/transactionPayoffFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.transaction.payoff.TransactionPayoffFragment"
+        android:label="fragment_transaction_payoff"
+        tools:layout="@layout/fragment_transaction_payoff">
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 거래 대장 - 청구서발송 -->
+    <fragment
+        android:id="@+id/transactionPaysendFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.transaction.paysend.TransactionPaysendFragment"
+        android:label="fragment_transaction_paysend"
+        tools:layout="@layout/fragment_transaction_paysend">
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 행낭발송 -->
+    <fragment
+        android:id="@+id/bagsendFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.bagsend.BagSendFragment"
+        android:label="fragment_bagsend"
+        tools:layout="@layout/fragment_bagsend">
+        <action
+            android:id="@+id/action_visitPlanFragment_to_bagsendAddFragment"
+            app:destination="@id/bagsendAddFragment" />
+        <action
+            android:id="@+id/action_visitPlanFragment_to_bagsendDetailFragment"
+            app:destination="@id/bagsendDetailFragment" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 행낭발송 - 등록 -->
+    <fragment
+        android:id="@+id/bagsendAddFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.bagsend.add.BagSendAddFragment"
+        android:label="fragment_bagsend_add"
+        tools:layout="@layout/fragment_bagsend_add">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 행낭발송 - 상세 -->
+    <fragment
+        android:id="@+id/bagsendDetailFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.bagsend.detail.BagSendDetailFragment"
+        android:label="fragment_bagsend_detail"
+        tools:layout="@layout/fragment_bagsend_detail">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 고객 -->
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.customer.CustomerFragment"
+        android:label="fragment_customer"
+        tools:layout="@layout/fragment_customer">
+        <action
+            android:id="@+id/action_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 고객 - 상세 -->
+    <fragment
+        android:id="@+id/customerDetailFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.customer.detail.CustomerDetailFragment"
+        android:label="fragment_customer_detail"
+        tools:layout="@layout/fragment_customer_detail">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 메모 -->
+    <fragment
+        android:id="@+id/memoFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.memo.MemoFragment"
+        android:label="fragment_memo"
+        tools:layout="@layout/fragment_memo">
+        <action
+            android:id="@+id/action_to_memoAddFragment"
+            app:destination="@id/memoAddFragment" />
+        <action
+            android:id="@+id/action_to_memoDetailFragment"
+            app:destination="@id/memoDetailFragment" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 메모 - 등록 -->
+    <fragment
+        android:id="@+id/memoAddFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.memo.add.MemoAddFragment"
+        android:label="fragment_memo_add"
+        tools:layout="@layout/fragment_memo_add">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 메모 - 상세 -->
+    <fragment
+        android:id="@+id/memoDetailFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.memo.detail.MemoDetailFragment"
+        android:label="fragment_memo_detail"
+        tools:layout="@layout/fragment_memo_detail">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 부서 연락처 -->
+    <fragment
+        android:id="@+id/departmentContactFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.contact.DepartmentContactFragment"
+        android:label="fragment_department_contact"
+        tools:layout="@layout/fragment_department_contact">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- VOC -->
+    <fragment
+        android:id="@+id/vocFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.voc.VOCFragment"
+        android:label="fragment_voc"
+        tools:layout="@layout/fragment_voc">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 항목조회,결과조회 -->
+    <fragment
+        android:id="@+id/resultSearchFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.resultsearch.ResultSearchFragment"
+        android:label="fragment_result_search"
+        tools:layout="@layout/fragment_result_search">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 고객지원 -->
+    <fragment
+        android:id="@+id/customerSupportFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.customersupport.CustomerSupportFragment"
+        android:label="fragment_customer_support"
+        tools:layout="@layout/fragment_customer_support">
+        <action
+            android:id="@+id/action_to_customerSupportAddFragment"
+            app:destination="@id/customerSupportAddFragment" />
+        <action
+            android:id="@+id/action_to_customerSupportDetailFragment"
+            app:destination="@id/customerSupportDetailFragment" />
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 고객지원 - 등록 -->
+    <fragment
+        android:id="@+id/customerSupportAddFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.customersupport.add.CustomerSupportAddFragment"
+        android:label="fragment_customer_support_add"
+        tools:layout="@layout/fragment_customer_support_add">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <!-- 고객지원 - 상세 -->
+    <fragment
+        android:id="@+id/customerSupportDetailFragment"
+        android:name="kr.co.seesoft.nemo.starnemoapp.ui.customersupport.detail.CustomerSupportDetailFragment"
+        android:label="fragment_customer_support_detail"
+        tools:layout="@layout/fragment_customer_support_detail">
+
+        <action
+            android:id="@+id/action_navigation_menu_to_home"
+            app:destination="@id/navigation_menu" />
+    </fragment>
 
 </navigation>

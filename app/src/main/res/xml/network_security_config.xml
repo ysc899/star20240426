@@ -15,6 +15,10 @@
         <!-- STAR API -->
         <domain includeSubdomains="true">100.100.50.215</domain>
         <domain includeSubdomains="true">219.252.39.216</domain>
+
+        <!-- 검사결과 URL -->
+        <domain includeSubdomains="true">trms.seegenemedical.com</domain>
+        <domain includeSubdomains="true">100.100.100.170</domain>
     </domain-config>
 
 </network-security-config>
